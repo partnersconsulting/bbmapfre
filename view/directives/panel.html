@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="icon icon-home" ng-if="linkback">
+        <a href="#/home">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
+        </span>
+        <span class="icon" ng-if="linkback">
+        <a href="#/{{ linkback }}">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+        </span> {{ title }}
+    </div>
+    <div class="panel-body" ng-transclude ng-class="{ 'panel-body-form':type==='form' }">
+    </div>
+</div>

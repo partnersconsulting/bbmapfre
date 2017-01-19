@@ -1,0 +1,27 @@
+<div class="form-group" ng-show="onlyview!=true">
+    <label>{{ title }}</label>
+
+    <input ng-show="type == 'text' || type == 'number' || type == 'email'" ng-model="model" class="form-control" type="{{type}}">
+    <input ng-show="type == 'phone'" ng-model="model" class="form-control" type="text" >
+
+
+    <select ng-show="type == 'select'" class="form-control" ng-model="model" ng-options="item.name for item in list">
+        <option value=""></option>
+    </select> 
+
+    <input ng-show="type == 'datepicker'" type="text" ng-init="dateOpened=false" class="form-control" uib-datepicker-popup="{{'dd-MM-yyyy'}}" ng-click="dateOpened = !dateOpened" ng-model="model" is-open="dateOpened" close-text="Close" /> 
+
+    <textarea ng-show="type == 'textarea'" class="form-control" rows="3" ng-model="model" ></textarea>
+
+    <span ng-show="type == 'checkbox'" class="form-control" ng-model="model">
+        <input type="checkbox"> {{ title }}
+    </span>
+
+</div>
+
+<div class="form-group form-group-view" ng-show="onlyview==true">
+	<label>{{ title }}</label>
+	 <div ng-show="type != 'datepicker'" >{{model}}</div>
+	 <div ng-show="type == 'datepicker'" >{{model | date:'dd-MM-yyyy'}}</div>
+	 
+</div>

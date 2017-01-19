@@ -1,0 +1,114 @@
+<panel title="Cadastro de Pesquisas" linkback="pesquisas">
+    <div class="input-group input-group-lg grupo-busca">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Categoria</th>
+                <th>Perfil</th>
+                <th>Validade</th>
+                <th>Ativo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pesquisa in listaPesquisas | filter:filtro">
+                <td>{{pesquisa.id}}</td>
+                <td>{{pesquisa.nome}}</td>
+                <td>{{pesquisa.tipo}}</td>
+                <td>{{pesquisa.categoria}}</td>
+                <td>{{pesquisa.perfil}}</td>
+                <td>{{pesquisa.validade | date:'dd-MM-yyyy'}}</td>
+                <td><i class="fa" ng-class="{'fa-check-circle':(pesquisa.validade > newDate), 'fa-times': (pesquisa.validade <= newDate)}"></i></td>
+                <td> <span class="btn btn-info btn-xs" ng-click="visualizarPesquisa(pesquisa)"><i class="fa fa-search" aria-hidden="true"></i></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div uib-collapse="collapseFormPesquisa" class="well">
+        <button type="button" ng-click="closeTabs()" class="btn btn-danger  pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+        <uib-tabset active="tabactive">
+            <uib-tab index="0" heading="Dados Gerais">
+                <form name="formulario">
+                    <div class="row flex-row">
+                        <entry title="Nome" onlyview="viewPesquisa" type="text" size="3" model="pesquisa.nome"></entry>
+                        <entry title="Validade" onlyview="viewPesquisa" type="datepicker" size="3" model="pesquisa.validade"></entry>
+                        <entry title="Tipo" onlyview="viewPesquisa" type="select" size="3" model="pesquisa.tipo" list="listaTiposQuestionario"></entry>
+                        <entry title="Categoria" onlyview="viewPesquisa" type="select" size="3" model="pesquisa.categoria" list="listaCategoriaQuestionario"></entry>
+                        <entry title="Perfil Usuário" onlyview="viewPesquisa" type="select" size="3" model="pesquisa.perfil" list="listaVoluntarioPerfil"></entry>
+                    </div>
+                    <div class="row flex-row">
+                        <entry title="desc" onlyview="viewPesquisa" type="textarea" size="12" model="pesquisa.desc"></entry>
+                    </div>
+                </form>
+            </uib-tab>
+            <uib-tab index="1" heading="Perguntas">
+                <table class="table table-hover" ng-show="pesquisa.perguntas.length">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Pergunta</th>
+                            <th>Respostas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pergunta in pesquisa.perguntas">
+                            <td>{{pergunta.id}}</td>
+                            <td>{{pergunta.titulo}}</td>
+                            <td><span ng-repeat="resposta in pergunta.respostas">{{resposta.id}}-{{resposta.titulo}} <br></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="well" ng-show="adicionandoPergunta">
+                    <div class="row flex-row">
+                        <entry title="Pergunta" onlyview="viewPesquisa" type="text" size="12" model="pergunta.titulo"></entry>
+                    </div>
+                    <div class="row flex-row" ng-show="adicionandoPergunta">
+                        <entry title="Resposta {{key}}" ng-repeat="(key, resposta) in pergunta.respostas" onlyview="viewPesquisa" type="text" size="12" model="resposta.titulo"></entry>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary pull-right button-inline" ng-click="addResposta()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="row button-row" ng-show="adicionandoPergunta">
+                        <button type="button" class="btn btn-success pull-right" ng-click="salvarPergunta()">Salvar Pergunta</button>
+                    </div>
+                </div>
+                <div class="row button-row" ng-hide="adicionandoPergunta">
+                    <button type="button" class="btn btn-primary pull-right" ng-click="addPergunta()">Adicionar Pergunta</button>
+                </div>
+                <div class="row" ng-show="!viewPesquisa">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" ng-click="salvarPesquisa()">Salvar Pesquisa</button>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="2" heading="Usuários" ng-show="viewPesquisa">
+                <div class="input-group input-group-lg grupo-busca">
+                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtroUsuarios">
+                </div>
+                <!-- <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Codigo</th>
+                            <th>Nome</th>
+                            <th>Data Respondido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in voluntarios | filter:filtroUsuarios">
+                            <td><i class="fa" ng-class="{'fa-check-square':item.respondido, 'fa-square-o': !item.respondido}"></i></td>
+                            <td>{{item.nome}}</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <button type="button" class="btn btn-success" ng-show="collapseFormPesquisa" ng-click="novaPesquisa()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Nova</button>
+</panel>

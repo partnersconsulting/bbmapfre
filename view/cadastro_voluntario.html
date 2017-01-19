@@ -1,0 +1,161 @@
+<panel title="Cadastro de Voluntarios" linkback="voluntarios">
+    <div class="input-group input-group-lg grupo-busca">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
+    </div> 
+
+    <table class="table table-hover" >
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Sexo</th>
+                <th>Perfil</th>
+                <th>Cidade</th>
+                <th>Ativo</th>
+                <th>Validade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="itemVoluntario in voluntarios | filter:filtro" ng-class="{'tr-selected': itemVoluntario.id == voluntario.id}">
+                <!-- 'tr-disabled':!itemVoluntario.ativo,  -->
+                <td>{{itemVoluntario.id}}</td>
+                <td>{{itemVoluntario.nome}}</td>
+                <td>{{itemVoluntario.telefone}}</td>
+                <td>{{itemVoluntario.sexo}}</td>
+                <td>{{itemVoluntario.perfil}}</td>
+                <td>{{itemVoluntario.cidade}}-{{itemVoluntario.estado}}</td>
+                <td>
+                    <span ng-class="{'label-success':itemVoluntario.ativo, 'label-danger': !itemVoluntario.ativo}" class="label"><i class="fa" ng-class="{'fa-check-circle':itemVoluntario.ativo, 'fa-times': !itemVoluntario.ativo}"></i></span>
+                </td>
+                <td>{{dataValidade(itemVoluntario.data_cadastro)}}</td>
+                <td> <span class="btn btn-info btn-xs" ng-click="visualizarVoluntario(itemVoluntario)"><i class="fa fa-search" aria-hidden="true"></i></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div uib-collapse="collapseFormValuntario" class="well">
+        <button type="button" ng-click="closeTabs()" class="btn btn-danger  pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+        <uib-tabset active="tabactive">
+            <uib-tab index="0" heading="Dados Gerais">
+                <form name="formulario">
+                    <div class="row flex-row">
+                        <entry title="Nome" onlyview="viewVoluntario" type="text" size="4" model="voluntario.nome"></entry>
+                        <entry title="Data Nascimento" onlyview="viewVoluntario" type="datepicker" size="3" model="voluntario.data_nascimento"></entry>
+                        <entry title="Telefone" onlyview="viewVoluntario" type="phone" size="3" model="voluntario.telefone"></entry>
+                        <entry title="Sexo" onlyview="viewVoluntario" type="select" size="3" model="voluntario.sexo" list="listaVoluntarioSexo"></entry>
+                    </div>
+                    <div class="row flex-row">
+                        <entry title="Email" onlyview="viewVoluntario" type="text" size="4" model="voluntario.email"></entry>
+                        <entry title="Rg" onlyview="viewVoluntario" type="text" size="3" model="voluntario.rg"></entry>
+                        <entry title="cpf" onlyview="viewVoluntario" type="text" size="3" model="voluntario.cpf"></entry>
+                        <entry title="Perfil" onlyview="viewVoluntario" type="select" size="2" model="voluntario.perfil" list="listaVoluntarioPerfil"></entry>
+                    </div>
+                    <div class="row flex-row" >
+                        <div class="col-md-2" ng-show="!viewVoluntario">
+                            <div class="form-group">
+                                <label>CEP</label>
+                                <input maxlength="8" type="text" ng-model="voluntario.cep" class="form-control" ng-change="onChangeCep()">
+                            </div>
+                        </div>
+                        <div class="col-md-2" ng-show="viewVoluntario">
+                            <div class="form-group form-group-view">
+                                <label>CEP</label>
+                                <div>{{voluntario.cep}}</div>
+                            </div>
+                        </div>
+                        <!-- <entry title="cep" onlyview="viewVoluntario" type="text" size="2" model="voluntario.cep" ng-model="voluntario.cep"></entry> -->
+                        <entry title="rua" onlyview="viewVoluntario" type="text" size="4" model="voluntario.rua"></entry>
+                        <entry title="numero" onlyview="viewVoluntario" type="text" size="2" model="voluntario.numero"></entry>
+                        <entry title="complemento" onlyview="viewVoluntario" type="text" size="4" model="voluntario.complemento"></entry>
+                    </div>
+                    <div class="row flex-row">
+                        <entry title="bairro" onlyview="viewVoluntario" type="text" size="3" model="voluntario.bairro"></entry>
+                        <entry title="cidade" onlyview="viewVoluntario" type="select" size="3" model="voluntario.cidade" list="listaCidades"></entry>
+                        <entry title="estado" onlyview="viewVoluntario" type="select" size="3" model="voluntario.estado" list="listaEstados"></entry>
+                        <entry title="pais" onlyview="viewVoluntario" type="text" size="3" model="voluntario.pais"></entry>
+                    </div>
+                    <div class="row flex-row">
+                        <entry title="obs" onlyview="viewVoluntario" type="textarea" size="12" model="voluntario.obs"></entry>
+                    </div>
+                </form>
+                
+            </uib-tab>
+            <uib-tab index="1" heading="Questionarios">
+                <div class="input-group input-group-lg grupo-busca">
+                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtroQuestionario">
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Codigo</th>
+                            <th>Nome</th>
+                            <th>Data Respondido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in voluntario.pesquisas | filter:filtroQuestionario">
+                            <td><i class="fa" ng-class="{'fa-check-square':item.respondido, 'fa-square-o': !item.respondido}"></i></td>
+                            <td>{{item.pesquisa.id}}</td>
+                            <td>{{item.pesquisa.nome}}</td>
+                            <td>{{item.respondido | date:'dd-MM-yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row" ng-show="!viewVoluntario">
+                    <button ng-repeat="(key, pesquisa) in listaPesquisas" ng-disabled="!checkPesquisaVencida(key)" ng-show="!checkPesquisaUsada(key)" type="button" class="btn btn-pesquisa" ng-click="addPesquisa(key)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{pesquisa.nome}} <span ng-show="!checkPesquisaVencida(key)"> - Pesquisa Vencida!</span> </button>
+                </div>
+            </uib-tab>
+            <uib-tab index="2" heading="Anexos">
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <img ng-show="voluntario.anexos" src="{{voluntario.anexos[0].url}}" alt="..." class="center-block img-circle img-thumbnail img-responsive">
+                        <button ng-hide="viewVoluntario" type="button" class="btn btn-pesquisa btn-block" ng-click="addAnexo()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Anexar</button>
+                    </div>
+                    <div class="col-md-9">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nome</th>
+                                    <th>Tamanho</th>
+                                    <th>Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="anexo in voluntario.anexos">
+
+                                    <td>{{anexo.id}}</td>
+                                    <td>{{anexo.nome}}</td>
+                                    <td>{{anexo.tamanho}}</td>
+                                    <td>{{anexo.data | date:'dd-MM-yyyy'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" ng-show="!viewVoluntario">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarVoluntario()">Salvar</button>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="3" heading="Status" ng-show="viewVoluntario">
+                <div class="row">
+                    <entry title="Data Validade" onlyview="true" type="text" size="4" model="dataValidade(voluntario.data_cadastro)"></entry>
+                    <entry title="Status Atual" onlyview="true" type="text" size="4" model="voluntario.status.nome.code"></entry>
+                    <entry ng-show="voluntario.status.motivo.code" title="Motivo Status" onlyview="true" type="text" size="4" model="voluntario.status.motivo.code"></entry>
+                </div>
+                <div class="row">
+                    <entry title="Alterar Status" type="select" size="4" model="voluntario.status.nome" list="listaVoluntarioStatus"></entry>
+                    <entry title="Alterar Motivo" type="select" size="4" model="voluntario.status.motivo" list="listaVoluntarioMotivo"></entry>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <button type="button" class="btn btn-success" ng-show="collapseFormValuntario" ng-click="novoVoluntario()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
+</panel>

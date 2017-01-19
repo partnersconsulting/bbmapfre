@@ -1,0 +1,112 @@
+<panel title="Pesquisa de Voluntarios e Pesquisas" linkback="home">
+    <uib-tabset active="activeJustified">
+        <uib-tab index="0" heading="Voluntarios">
+            <div class="row flex-row">
+                <entry title="Sexo" type="select" size="2" model="busca.sexo" list="listaVoluntarioSexo"></entry>
+                <entry title="Perfil" type="select" size="2" model="busca.perfil" list="listaVoluntarioPerfil"></entry>
+                <entry title="Ativo" type="select" size="2" model="busca.ativo" list="listaAtivo"></entry>
+                <entry title="Cidade" type="select" size="2" model="busca.cidade" list="listaCidades"></entry>
+                <entry title="Estado" type="select" size="2" model="busca.estado" list="listaEstados"></entry>
+                <entry title="faixa etária" type="select" size="2" model="busca.faixa_etaria" list="listaIdades"></entry>
+            </div>
+            <div class="row flex-row">
+                <div class="col-md-3">
+                    <div class="form-group ">
+                        <label>Pesquisa</label>
+                        <select class="form-control" ng-model="busca.pesquisa" ng-options="item.nome for item in listaPesquisas">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3" ng-show="busca.pesquisa">
+                    <div class="form-group ">
+                        <label>Pesquisa respondida</label>
+                        <select class="form-control" ng-model="busca.pesquisaRespondida" ng-options="item.name for item in listaPesquisaRespondida">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                </div>
+
+               <!--  <entry title="Tipo" onlyview="viewPesquisa" type="select" size="3" model="busca.tipoPesquisa" list="listaTiposQuestionario"></entry>
+               <entry title="Categoria" onlyview="viewPesquisa" type="select" size="3" model="busca.tipoCategoria" list="listaCategoriaQuestionario"></entry> -->
+
+            </div>
+            <div class="input-group input-group-lg grupo-busca">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th>Nascimento</th>
+                        <th>Perfil</th>
+                        <th>Cidade</th>
+                        <th>Ativo</th>
+                        <th>Validade</th>
+                        <!-- <th>Ações</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="itemVoluntario in voluntarios | filter:filterCodes | filter:filtro" ng-class="{'tr-selected': itemVoluntario.id == voluntario.id}">
+                        <!-- 'tr-disabled':!itemVoluntario.ativo,  -->
+                        <td>{{itemVoluntario.id}}</td>
+                        <td>{{itemVoluntario.nome}}</td>
+                        <td>{{itemVoluntario.telefone}}</td>
+                        <td>{{itemVoluntario.sexo}}</td>
+                        <td>{{itemVoluntario.data_nascimento | date:'dd-MM-yyyy'}}</td>
+                        <td>{{itemVoluntario.perfil}}</td>
+                        <td>{{itemVoluntario.cidade}}-{{itemVoluntario.estado}}</td>
+                        <td>
+                            <span ng-class="{'label-success':itemVoluntario.ativo, 'label-danger': !itemVoluntario.ativo}" class="label"><i class="fa" ng-class="{'fa-check-circle':itemVoluntario.ativo, 'fa-times': !itemVoluntario.ativo}"></i></span>
+                        </td>
+                        <td>{{dataValidade(itemVoluntario.data_cadastro)}}</td>
+                        <!-- <td> <span class="btn btn-info btn-xs" ng-click="visualizarVoluntario(itemVoluntario)"><i class="fa fa-search" aria-hidden="true"></i></span></td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row button-row">
+                <button class="btn btn-warning pull-right" type="button" csv-header="exportHeader('v')" ng-csv="exportArray('v')" filename="voluntarios.csv"><i class="fa fa-file-text" aria-hidden="true"></i> Exportar</button>
+            </div>
+        </uib-tab>
+        <!-- <uib-tab index="1" heading="Pesquisas">
+            <div class="input-group input-group-lg grupo-busca">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Perfil</th>
+                        <th>Validade</th>
+                        <th>Ativo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pesquisa in listaPesquisas | filter:filtro">
+                        <td>{{pesquisa.id}}</td>
+                        <td>{{pesquisa.nome}}</td>
+                        <td>{{pesquisa.tipo}}</td>
+                        <td>{{pesquisa.categoria}}</td>
+                        <td>{{pesquisa.perfil}}</td>
+                        <td>{{pesquisa.validade | date:'dd-MM-yyyy'}}</td>
+                        <td><i class="fa" ng-class="{'fa-check-circle':(pesquisa.validade > newDate), 'fa-times': (pesquisa.validade <= newDate)}"></i></td>
+                        <td> <span class="btn btn-info btn-xs" ng-click="visualizarVoluntario(voluntario)"><i class="fa fa-search" aria-hidden="true"></i></span></td>
+                    </tr>
+                </tbody>
+            </table>
+             <div class="row button-row" >
+                <button class="btn btn-warning pull-right" type="button" csv-header="exportHeader('p')" ng-csv="exportArray('p')" filename="voluntarios.csv"><i class="fa fa-file-text" aria-hidden="true"></i> Exportar</button>  
+            </div>
+        </uib-tab> -->
+    </uib-tabset>
+</panel>
