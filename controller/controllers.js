@@ -1,12 +1,37 @@
 angular.module("App.controllers", [])
     .controller("HomeController", function($scope, $rootScope) {
         $scope.links = [{
-            title: "Eventos",
-            icon: "fa-calendar",
-            text: "Gerenciador de Eventos",
-            //link: "/voluntarios"
-            link: "/cadastro_evento"
-        }];
+                title: "Eventos",
+                icon: "fa-calendar",
+                text: "Gerenciador de Eventos",
+                link: "/cadastro_evento"
+            }, {
+                title: "Cadastros",
+                icon: "fa-pencil-square-o",
+                text: "Gerenciador de Cadastros",
+                link: "/cadastros"
+            }
+
+        ];
+
+    })
+    .controller("CadastrosController", function($scope, $rootScope) {
+        $scope.links = [{
+                title: "Tipos Eventos",
+                icon: "fa-pencil-square-o",
+                text: "Cadastrar novo tipo de Eventos",
+                // link: "/tipo_evento"
+
+                link: "/cadastros"
+            }, {
+                title: "Cotas",
+                icon: "fa-pencil-square-o",
+                text: "% Cotas por tipo de Evento",
+                // link: "/cotas_evento"
+                link: "/cadastros"
+            }
+
+        ];
 
     })
     .controller("EventosController", function($scope, $rootScope, $filter) {
@@ -54,7 +79,7 @@ angular.module("App.controllers", [])
             $rootScope.convidadoAvulso = {};
         }
 
-         $scope.closeTabs = function() {
+        $scope.closeTabs = function() {
             $scope.evento = null;
             $rootScope.viewEvento = false;
             $scope.collapseFormEvento = true;
@@ -146,8 +171,13 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.listaEventos = [
-            { "nome": "Evento Teste1", "tipoEvento": { "name": "Concertos", "percs": [30, 30, 5, 5, 10, 10, 2, 2, 6] }, "programa": { "name": "Budget Q1 - Shows" }, "local": "Ibirapuera", "dataInicio": "2017-02-20T03:00:00.000Z", "horaInicio": "08:00", "dataFim": "2017-02-20T03:00:00.000Z", "horaFim": "22:00", "descricao": "Descrição teste", "templateYMkt": { "name": "Convite Show" }, "cotas": "500", "arquivoBanner": "arquivo1", "arquivoPagina": "arquivo2", "arquivoTeaser": "arquivo3", "arquivoLogomarca": "arquivo4", "arquivoRodape": "arquivo5", "arquivoClassificacao": "arquivo6", "canalEnvio": { "name": "Email" }, "canalRSVP": { "name": "CALL LIST" }, "passWallet": 0, "grupos": [{ "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" }, "clienteInterno": "" }, { "grupo": { "name": "GA-SP Bronze", "desc": "Grupo Alvo São Paulo Bronze" } }], "convidados": [{ "name": "Usuario1", "email": "email@email.com", "telefone": "1199554488" }, { "name": "Usuario2", "email": "user@gmail.com", "telefone": "1198464444", "clienteInterno": "Teste1" }], "id": 0, "data_cadastro": "2017-01-20T04:22:13.487Z", "numeroRSVP": "876877867868" }
+            { "nome": "BANDA MANTIQUEIRA", "tipoEvento": { "name": "Concertos", "percs": [30, 30, 5, 5, 10, 10, 2, 2, 6] }, "programa": { "name": "Budget Q1 - Shows" }, "local": "Sesc Jundiaí", "dataInicio": "2017-02-20T03:00:00.000Z", "horaInicio": "20:00", "dataFim": "2017-02-20T03:00:00.000Z", "horaFim": "22:00", "descricao": "", "templateYMkt": 0, "cotas": "100", "arquivoBanner": "", "arquivoPagina": "", "arquivoTeaser": "", "arquivoLogomarca": "", "arquivoRodape": "", "arquivoClassificacao": "", "canalEnvio": 0, "canalRSVP": 0, "passWallet": 0, "grupos": [{ "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" } }], "convidados": [], "id": 0, "data_cadastro": "2017-01-20T12:28:50.862Z" },
+            {"nome":"MARIA GADÚ","tipoEvento":{"name":"Concertos","percs":[30,30,5,5,10,10,2,2,6]},"programa":{"name":"Budget Q1 - Shows"},"local":"CARAGUATATUBA, SP","dataInicio":"2017-02-22T03:00:00.000Z","horaInicio":"16:00","dataFim":"2017-02-22T03:00:00.000Z","horaFim":"22:00","descricao":"","templateYMkt":0,"cotas":"400","arquivoBanner":"","arquivoPagina":"","arquivoTeaser":"","arquivoLogomarca":"","arquivoRodape":"","arquivoClassificacao":"","canalEnvio":0,"canalRSVP":0,"passWallet":0,"grupos":[{"grupo":{"name":"GA-SP Gold","desc":"Grupo Alvo São Paulo Gold"}},{"grupo":{"name":"GA-SP Silver","desc":"Grupo Alvo São Paulo Silver"}},{"grupo":{"name":"GA-SP Bronze","desc":"Grupo Alvo São Paulo Bronze"}}],"convidados":[{"name":"cliente1"}],"id":1,"data_cadastro":"2017-01-20T12:31:22.515Z"},
+            {"nome":"JOÃO BOSCO E VINÍCIUS","tipoEvento":{"name":"Concertos","percs":[30,30,5,5,10,10,2,2,6]},"programa":{"name":"Budget Q2 - Cliente Gold"},"local":"CARAGUATATUBA, SP","dataInicio":"2017-03-07T03:00:00.000Z","horaInicio":"20:00","dataFim":"2017-03-07T03:00:00.000Z","horaFim":"22:00","descricao":"","templateYMkt":0,"cotas":"50","arquivoBanner":"","arquivoPagina":"","arquivoTeaser":"","arquivoLogomarca":"","arquivoRodape":"","arquivoClassificacao":"","canalEnvio":0,"canalRSVP":0,"passWallet":0,"grupos":[{},{"grupo":{"name":"GA-SP Gold","desc":"Grupo Alvo São Paulo Gold"}},{"grupo":{"name":"GA-SP Silver","desc":"Grupo Alvo São Paulo Silver"}}],"convidados":[{"name":"cliente"},{"name":"cliente"}],"id":2,"data_cadastro":"2017-01-20T12:34:50.432Z"},
+            {"nome":"São Paulo X Ponte Petra","tipoEvento":{"name":"Jogos de Futebol","percs":[10,10,10,30,10,10,5,5,10]},"programa":{"name":"Budget Q3"},"local":"Morumbi","dataInicio":"2017-02-12T02:00:00.000Z","horaInicio":"16:00","dataFim":"2017-02-12T02:00:00.000Z","horaFim":"22:00","descricao":"","templateYMkt":0,"cotas":"10000","arquivoBanner":"","arquivoPagina":"","arquivoTeaser":"","arquivoLogomarca":"","arquivoRodape":"","arquivoClassificacao":"","canalEnvio":0,"canalRSVP":0,"passWallet":0,"grupos":[{"grupo":{"name":"GA-SP Gold","desc":"Grupo Alvo São Paulo Gold"}},{"grupo":{"name":"GA-SP Silver","desc":"Grupo Alvo São Paulo Silver"}},{"grupo":{"name":"GA-SP Bronze","desc":"Grupo Alvo São Paulo Bronze"}}],"convidados":[{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"}],"id":3,"data_cadastro":"2017-01-20T12:37:20.001Z"}
+
         ];
+
 
 
 
