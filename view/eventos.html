@@ -36,30 +36,28 @@
         <button type="button" ng-click="closeTabs()" class="btn btn-danger  pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         <uib-tabset active="tabactive">
             <uib-tab index="0" heading="Evento">
-                <form name="formulario">
-                    <div class="row flex-row">
-                        <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaTipos"></entry>
-                        <entry title="Programa" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaProgramas"></entry>
+                <div class="row flex-row">
+                    <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="6" model="evento.tipoEvento" list="listaTipos"></entry>
+                    <entry title="Programa" onlyview="viewEvento" type="select" size="6" model="evento.programa" list="listaProgramas"></entry>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Nome" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
+                    <entry title="Local" onlyview="viewEvento" type="text" size="6" model="evento.local"></entry>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Data inicio" onlyview="viewVoluntario" type="datepicker" size="3" model="evento.dataInicio"></entry>
+                    <entry title="Hora inicio" onlyview="viewEvento" type="text" size="2" model="evento.horaInicio"></entry>
+                    <entry title="Data/hora inicio" onlyview="viewVoluntario" type="datepicker" size="3" model="evento.dataFim"></entry>
+                    <entry title="Hora fim" onlyview="viewEvento" type="text" size="2" model="evento.horaFim"></entry>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Descrição" onlyview="viewEvento" type="textarea" size="12" model="evento.descricao"></entry>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar Evento</button>
                     </div>
-                    <div class="row flex-row">
-                        <entry title="Nome" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
-                        <entry title="Local" onlyview="viewEvento" type="text" size="6" model="evento.local"></entry>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Data inicio" onlyview="viewVoluntario" type="datepicker" size="3" model="evento.dataInicio"></entry>
-                        <entry title="Hora inicio" onlyview="viewEvento" type="text" size="2" model="evento.horaInicio"></entry>
-                        <entry title="Data/hora inicio" onlyview="viewVoluntario" type="datepicker" size="3" model="evento.dataFim"></entry>
-                        <entry title="Hora fim" onlyview="viewEvento" type="text" size="2" model="evento.horaFim"></entry>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Descrição" onlyview="viewEvento" type="textarea" size="12" model="evento.descricao"></entry>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </uib-tab>
             <uib-tab index="1" heading="Convidados">
                 <div class="row">
@@ -142,31 +140,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="input-group input-group-lg grupo-busca">
-                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtroQuestionario">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar Convidados</button>
+                    </div>
                 </div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Codigo</th>
-                            <th>Nome</th>
-                            <th>Data Respondido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="item in voluntario.pesquisas | filter:filtroQuestionario">
-                            <td><i class="fa" ng-class="{'fa-check-square':item.respondido, 'fa-square-o': !item.respondido}"></i></td>
-                            <td>{{item.pesquisa.id}}</td>
-                            <td>{{item.pesquisa.nome}}</td>
-                            <td>{{item.respondido | date:'dd-MM-yyyy'}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="row" ng-show="!viewVoluntario">
-                    <button ng-repeat="(key, pesquisa) in listaPesquisas" ng-disabled="!checkPesquisaVencida(key)" ng-show="!checkPesquisaUsada(key)" type="button" class="btn btn-pesquisa" ng-click="addPesquisa(key)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{pesquisa.nome}} <span ng-show="!checkPesquisaVencida(key)"> - Pesquisa Vencida!</span> </button>
-                </div> -->
             </uib-tab>
             <uib-tab index="2" heading="Cotas">
                 <div class="row flex-row">
@@ -254,48 +232,43 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarVoluntario()">Salvar</button>
+                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarVoluntario()">Salvar Cotas</button>
                     </div>
                 </div>
             </uib-tab>
             <uib-tab index="3" heading="Convite">
-
                 <div class="row flex-row">
-                        <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="6" model="evento.numeroRSVP"></entry>
-                        <entry title="Template yMkt" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaTemplates"></entry>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Banner Convite" onlyview="viewEvento" type="text" size="8" model="evento.tipo" ></entry>
-                         <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Página web" onlyview="viewEvento" type="text" size="8" model="evento.tipo" ></entry>
-                         <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Teaser" onlyview="viewEvento" type="text" size="8" model="evento.tipo" ></entry>
-                         <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
-                    </div>
-                     <div class="row flex-row">
-                        <entry title="Logomarca" onlyview="viewEvento" type="text" size="8" model="evento.tipo" ></entry>
-                         <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Rodapé" onlyview="viewEvento" type="text" size="8" model="evento.tipo" ></entry>
-                         <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="8" model="evento.tipo" ></entry>
-                         <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
-                    </div>
-                    <div class="row flex-row">
-                        <entry title="Canal de Envio" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaCanaisEnvio"></entry>
-                         <entry title="Canal de RSVP" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaCanaisRSVP"></entry>
-                    </div>
-
-
-
-
+                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="6" model="evento.numeroRSVP"></entry>
+                    <entry title="Template yMkt" onlyview="viewEvento" type="select" size="6" model="evento.templateYMkt" list="listaTemplates"></entry>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Banner Convite" onlyview="viewEvento" type="text" size="8" model="evento.arquivoBanner"></entry>
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Página web" onlyview="viewEvento" type="text" size="8" model="evento.arquivoPagina"></entry>
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Teaser" onlyview="viewEvento" type="text" size="8" model="evento.arquivoTeaser"></entry>
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Logomarca" onlyview="viewEvento" type="text" size="8" model="evento.arquivoLogomarca"></entry>
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Rodapé" onlyview="viewEvento" type="text" size="8" model="evento.arquivoRodape"></entry>
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="8" model="evento.arquivoClassificacao"></entry>
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                </div>
+                <div class="row flex-row">
+                    <entry title="Canal de Envio" onlyview="viewEvento" type="select" size="6" model="evento.canalEnvio" list="listaCanaisEnvio"></entry>
+                    <entry title="Canal de RSVP" onlyview="viewEvento" type="select" size="6" model="evento.canalRSVP" list="listaCanaisRSVP"></entry>
+                </div>
                 <!--  <div class="row">
                     <entry title="Data Validade" onlyview="true" type="text" size="4" model="dataValidade(voluntario.data_cadastro)"></entry>
                     <entry title="Status Atual" onlyview="true" type="text" size="4" model="voluntario.status.nome.code"></entry>
@@ -305,6 +278,11 @@
                     <entry title="Alterar Status" type="select" size="4" model="voluntario.status.nome" list="listaVoluntarioStatus"></entry>
                     <entry title="Alterar Motivo" type="select" size="4" model="voluntario.status.motivo" list="listaVoluntarioMotivo"></entry>
                 </div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar Convite</button>
+                    </div>
+                </div>
             </uib-tab>
         </uib-tabset>
     </div>

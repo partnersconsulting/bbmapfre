@@ -421,6 +421,40 @@ angular.module("App.controllers", [])
         ];
 
 
+
+
+        $rootScope.modeloEvento = {
+            id: '1',
+            nome: 'NomeEvento',
+            tipoEvento: $rootScope.listaTipos[0],
+            programa: $rootScope.listaProgramas[0],
+            local: 'local',
+            dataInicio: new Date('06/29/2016'),
+            horaInicio: '08:00',
+            dataFim: new Date('06/29/2016'),
+            horaFim: '22:00',
+            descricao: 'descricao',
+            templateYMkt: 0,
+            arquivoBanner: '',
+            arquivoPagina: '',
+            arquivoTeaser: '',
+            arquivoLogomarca: '',
+            arquivoRodape: '',
+            arquivoClassificacao: '',
+            canalEnvio: 0,
+            canalRSVP: 0,
+
+            grupos: [
+                { grupo: $rootScope.listaGrupos[0], clienteInterno: "nome1" }
+
+            ],
+
+            convidados: [
+                { nome: "nome1", email: "g1@gmail.com", telefone: "1199999999", clienteInterno: "nome1" }
+
+            ]
+        }
+
         $rootScope.listaEventos = [{
                 id: '1',
                 nome: 'Evento1',
