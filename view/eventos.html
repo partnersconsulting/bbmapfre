@@ -9,8 +9,9 @@
         <uib-tabset active="tabactive">
             <uib-tab index="0" heading="Evento">
                 <div class="row flex-row">
-                    <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="6" model="evento.tipoEvento" list="listaTipos"></entry>
-                    <entry title="Programa" onlyview="viewEvento" type="select" size="6" model="evento.programa" list="listaProgramas"></entry>
+                    <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="5" model="evento.tipoEvento" list="listaTipos"></entry>
+                    <entry title="Programa" onlyview="viewEvento" type="select" size="5" model="evento.programa" list="listaProgramas"></entry>
+                     <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')" class="btn btn-primary pull-right btn-space-top" target="_blank" >Programas</a>
                 </div>
                 <div class="row flex-row">
                     <entry title="Nome" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
@@ -298,6 +299,6 @@
             </tr>
         </tbody>
     </table>
-    
+
     <button type="button" class="btn btn-success pull-right" ng-show="collapseFormEvento" ng-click="novoEvento()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
 </panel>
