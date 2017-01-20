@@ -395,10 +395,15 @@ angular.module("App.controllers", [])
             { name: 'Budget Q3' }
 
         ];
+        $rootScope.listaGrupos = [
+            { name: 'GA-SP Gold' },
+            { name: 'GA-SP Silver' },
+            { name: 'GA-SP Bronze' }
+
+        ];
 
 
-        $rootScope.listaEventos = [
-            {
+        $rootScope.listaEventos = [{
                 id: '1',
                 nome: 'Evento1',
                 tipo: $rootScope.listaTipos[0],

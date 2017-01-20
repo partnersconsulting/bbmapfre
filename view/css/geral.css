@@ -1,11 +1,13 @@
 /* **************************************************** */
 
 .button-row {
-margin: 0 0 10px;
+    margin: 0 0 10px;
 }
+
 .button-inline {
     margin-top: 22px;
 }
+
 .flex-row {
     margin-right: 0px;
     margin-left: 0px;
@@ -134,7 +136,7 @@ select.form-control {
 }
 
 .form-group-view {
-        border: 1px solid #ccc;
+    border: 1px solid #ccc;
     padding: 0px 5px 2px;
 }
 
@@ -393,7 +395,7 @@ tfoot {
 /* ************** xxx ************** */
 
 .btn-pesquisa {
-       display: block;
+    display: block;
     margin: 5px 10px;
 }
 
@@ -575,3 +577,25 @@ tfoot {
 
 
 /* ************** xxx ************** */
+
+.col-border {
+    border: 1px solid #ccc;
+    margin: 1%;
+    width: 48%;
+}
+
+.table-responsive {
+    width: 100%;
+    margin: 15px;
+}
+
+.table-font-sm {
+    font-size: 12px;
+    border: 1px solid #ccc;
+    /*margin: 5px;
+    display: inline-block;*/
+}
+
+a.btn {
+    max-height: 22px;
+}
