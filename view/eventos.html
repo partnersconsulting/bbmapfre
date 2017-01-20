@@ -11,19 +11,24 @@
                 <th>Tipo</th>
                 <th>Programa</th>
                 <th>Local</th>
-                <th>Data</th>
+                <th>Data Inicio</th>
+                <th>Cotas</th>
+                <th>Grupos</th>
+                <th>Convidados</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="itemEvento in listaEventos | filter:filtro" ng-class="{'tr-selected': itemEvento.id == evento.id}">
                 <!-- 'tr-disabled':!itemEvento.ativo,  -->
-                <td>{{itemEvento.id}}</td>
+                <td>{{itemEvento.id + 1}}</td>
                 <td>{{itemEvento.nome}}</td>
-                <td>{{itemEvento.tipo.name}}</td>
+                <td>{{itemEvento.tipoEvento.name}}</td>
                 <td>{{itemEvento.programa.name}}</td>
                 <td>{{itemEvento.local}}</td>
                 <td>{{itemEvento.dataInicio | date:'dd-MM-yyyy'}} - {{itemEvento.horaInicio}}</td>
-                <td>{{itemEvento.dataFim | date:'dd-MM-yyyy'}} - {{itemEvento.horaFim}}</td>
+                <td>{{itemEvento.cotas}}</td>
+                <td>{{itemEvento.grupos.length}}</td>
+                <td>{{itemEvento.convidadoAvulso.length}}</td>
                 <!-- <td>
                     <span ng-class="{'label-success':itemEvento.ativo, 'label-danger': !itemEvento.ativo}" class="label"><i class="fa" ng-class="{'fa-check-circle':itemEvento.ativo, 'fa-times': !itemEvento.ativo}"></i></span>
                 </td>
@@ -63,10 +68,10 @@
                 <div class="row">
                     <div class="col-md-5 col-border">
                         <div class="row flex-row">
-                            <entry title="Grupo Alvo" onlyview="viewEvento" type="select" size="6" model="evento.grupo" list="listaGrupos"></entry>
-                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
+                            <entry title="Grupo Alvo" onlyview="viewEvento" type="select" size="6" model="convidadoGrupoAlvo.grupo" list="listaGrupos"></entry>
+                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoGrupoAlvo.clienteInterno"></entry>
                         </div>
-                        <button type="button" class="btn btn-success" ng-click="addConvidado()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
+                        <button type="button" class="btn btn-success" ng-click="addConvidadoGrupoAlvo()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -78,12 +83,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>GA-SP Gold</td>
-                                            <td>Grupo Alvo São Paulo Gold</td>
-                                            <td>Grupo Mafre</td>
+                                        <tr ng-repeat="grupo in evento.grupos">
+                                            <td>{{grupo.grupo.name}}</td>
+                                            <td>{{grupo.grupo.desc}}</td>
+                                            <td>{{grupo.clienteInterno}}</td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td>GA-SP Silver</td>
                                             <td>Grupo Alvo São Paulo Silver</td>
                                             <td></td>
@@ -92,7 +97,7 @@
                                             <td>GA-SP Bronze</td>
                                             <td>Grupo Alvo São Paulo Bronze</td>
                                             <td></td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -100,10 +105,14 @@
                     </div>
                     <div class="col-md-5 col-border">
                         <div class="row flex-row">
-                            <entry title="Convidado" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
-                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
+                            <entry title="Nome" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.nome"></entry>
+                            <entry title="Email" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.email"></entry>
                         </div>
-                        <button type="button" class="btn btn-success" ng-click="addConvidado()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
+                        <div class="row flex-row">
+                            <entry title="Telefone" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.telefone"></entry>
+                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.clienteInterno"></entry>
+                        </div>
+                        <button type="button" class="btn btn-success" ng-click="addConvidadoAvulso()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -116,13 +125,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Joao Marcos</td>
-                                            <td>jm@gmail.com</td>
-                                            <td>1199554433</td>
-                                            <td></td>
+
+
+                                        <tr ng-repeat="convidado in evento.convidados">
+                                            <td>{{convidado.name}}</td>
+                                            <td>{{convidado.email}}</td>
+                                            <td>{{convidado.telefone}}</td>
+                                            <td>{{convidado.clienteInterno}}</td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td>Mauricio tomaz</td>
                                             <td>maurithgmail.com</td>
                                             <td>1199855544</td>
@@ -133,7 +144,7 @@
                                             <td>angel@ig.com.br</td>
                                             <td>1199445454</td>
                                             <td></td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -232,7 +243,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarVoluntario()">Salvar Cotas</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarEvento()">Salvar Cotas</button>
                     </div>
                 </div>
             </uib-tab>
@@ -243,27 +254,27 @@
                 </div>
                 <div class="row flex-row">
                     <entry title="Banner Convite" onlyview="viewEvento" type="text" size="8" model="evento.arquivoBanner"></entry>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Página web" onlyview="viewEvento" type="text" size="8" model="evento.arquivoPagina"></entry>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Teaser" onlyview="viewEvento" type="text" size="8" model="evento.arquivoTeaser"></entry>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Logomarca" onlyview="viewEvento" type="text" size="8" model="evento.arquivoLogomarca"></entry>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Rodapé" onlyview="viewEvento" type="text" size="8" model="evento.arquivoRodape"></entry>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="8" model="evento.arquivoClassificacao"></entry>
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="upload()">Upload</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Canal de Envio" onlyview="viewEvento" type="select" size="6" model="evento.canalEnvio" list="listaCanaisEnvio"></entry>
@@ -286,5 +297,5 @@
             </uib-tab>
         </uib-tabset>
     </div>
-    <button type="button" class="btn btn-success pull-right" ng-click="novoEvento()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
+    <button type="button" class="btn btn-success pull-right" ng-show="collapseFormEvento" ng-click="novoEvento()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
 </panel>

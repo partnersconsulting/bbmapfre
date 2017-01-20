@@ -16,14 +16,17 @@ angular.module("App.controllers", [])
 
         function novo() {
             $scope.evento = $rootScope.modeloEvento;
+            $scope.evento.id = $rootScope.listaEventos.length;
             $scope.evento.data_cadastro = new Date();
-            $scope.evento.ativo = true;
         }
 
         $scope.novoEvento = function() {
             $scope.collapseFormEvento = false;
             novo();
 
+        }
+        $scope.salvarEvento = function() {
+            $rootScope.listaEventos[$scope.evento.id] = $scope.evento;
         }
 
         $scope.getPercCota = function(id) {
@@ -33,151 +36,109 @@ angular.module("App.controllers", [])
         }
         $scope.getCotas = function(id) {
             if ($scope.evento) {
-                return parseInt( ($scope.evento.cotas / 100) * $scope.getPercCota(id) );
+                return parseInt(($scope.evento.cotas / 100) * $scope.getPercCota(id));
             }
+        }
+        $scope.addConvidadoGrupoAlvo = function() {
+            $scope.evento.grupos.push({ grupo: $rootScope.convidadoGrupoAlvo.grupo, clienteInterno: $rootScope.convidadoGrupoAlvo.clienteInterno });
+            $rootScope.convidadoGrupoAlvo = {};
+        }
+
+        $scope.addConvidadoAvulso = function() {
+            $scope.evento.convidados.push({ name: $rootScope.convidadoAvulso.nome, email: $rootScope.convidadoAvulso.email, telefone: $rootScope.convidadoAvulso.telefone, clienteInterno: $rootScope.convidadoAvulso.clienteInterno });
+            $rootScope.convidadoAvulso = {};
         }
 
     })
+    .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
 
 
-
-.controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
-
-
-    $rootScope.dataValidade = function(date) {
-        if (date) {
-            var newDate = new Date(new Date(date).setMonth(date.getMonth() + 6));
-            return $filter('date')(newDate, "dd/MM/yyyy");;
+        $rootScope.dataValidade = function(date) {
+            if (date) {
+                var newDate = new Date(new Date(date).setMonth(date.getMonth() + 6));
+                return $filter('date')(newDate, "dd/MM/yyyy");;
+            }
         }
-    }
 
-    $rootScope.newDate = new Date();
+        $rootScope.newDate = new Date();
 
-    $rootScope.listaTemplates = [
-        { name: 'Convite Show' },
-        { name: 'Convite Jogo' }
-    ];
-    $rootScope.listaCanaisEnvio = [
-        { name: 'Email' },
-        { name: 'SMS' },
-        { name: 'MAIS EFETIVO' }
-    ];
-    $rootScope.listaCanaisRSVP = [
-        { name: 'CALL LIST' },
-        { name: 'Email' },
-        { name: 'SMS' }
-    ];
+        $rootScope.listaTemplates = [
+            { name: 'Convite Show' },
+            { name: 'Convite Jogo' }
+        ];
+        $rootScope.listaCanaisEnvio = [
+            { name: 'Email' },
+            { name: 'SMS' },
+            { name: 'MAIS EFETIVO' }
+        ];
+        $rootScope.listaCanaisRSVP = [
+            { name: 'CALL LIST' },
+            { name: 'Email' },
+            { name: 'SMS' }
+        ];
 
-    $rootScope.listaTipos = [
-        { name: 'Concertos', percs: [30, 30, 5, 5, 10, 10, 2, 2, 6] },
-        { name: 'Peças de Teatro', percs: [40, 20, 10, 11, 5, 5, 5, 2, 2] },
-        { name: 'Jogos de Tenis', percs: [15, 15, 15, 15, 15, 15, 5, 3, 2] },
-        { name: 'Jogos de Futebol', percs: [10, 10, 10, 30, 10, 10, 5, 5, 10] }
+        $rootScope.listaTipos = [
+            { name: 'Concertos', percs: [30, 30, 5, 5, 10, 10, 2, 2, 6] },
+            { name: 'Peças de Teatro', percs: [40, 20, 10, 11, 5, 5, 5, 2, 2] },
+            { name: 'Jogos de Tenis', percs: [15, 15, 15, 15, 15, 15, 5, 3, 2] },
+            { name: 'Jogos de Futebol', percs: [10, 10, 10, 30, 10, 10, 5, 5, 10] }
 
-    ];
-    $rootScope.listaProgramas = [
-        { name: 'Budget Q1 - Shows' },
-        { name: 'Budget Q2 - Cliente Silver' },
-        { name: 'Budget Q2 - Cliente Gold' },
-        { name: 'Budget Q3' }
+        ];
+        $rootScope.listaProgramas = [
+            { name: 'Budget Q1 - Shows' },
+            { name: 'Budget Q2 - Cliente Silver' },
+            { name: 'Budget Q2 - Cliente Gold' },
+            { name: 'Budget Q3' }
 
-    ];
-    $rootScope.listaGrupos = [
-        { name: 'GA-SP Gold', desc: "Grupo Alvo São Paulo Gold" },
-        { name: 'GA-SP Silver', desc: "Grupo Alvo São Paulo Silver" },
-        { name: 'GA-SP Bronze', desc: "Grupo Alvo São Paulo Bronze" }
+        ];
+        $rootScope.listaGrupos = [
+            { name: 'GA-SP Gold', desc: "Grupo Alvo São Paulo Gold" },
+            { name: 'GA-SP Silver', desc: "Grupo Alvo São Paulo Silver" },
+            { name: 'GA-SP Bronze', desc: "Grupo Alvo São Paulo Bronze" }
 
-    ];
+        ];
 
-    $rootScope.modeloEvento = {
-        id: '1',
-        nome: 'NomeEvento',
-        tipoEvento: $rootScope.listaTipos[0],
-        programa: $rootScope.listaProgramas[0],
-        local: 'local',
-        dataInicio: new Date('06/29/2016'),
-        horaInicio: '08:00',
-        dataFim: new Date('06/29/2016'),
-        horaFim: '22:00',
-        descricao: 'descricao',
-        templateYMkt: 0,
-        cotas: 200,
-        arquivoBanner: '',
-        arquivoPagina: '',
-        arquivoTeaser: '',
-        arquivoLogomarca: '',
-        arquivoRodape: '',
-        arquivoClassificacao: '',
-        canalEnvio: 0,
-        canalRSVP: 0,
+        $rootScope.convidadoGrupoAlvo = {
 
-        grupos: [
-            { grupo: $rootScope.listaGrupos[0], clienteInterno: "nome1" }
+        }
 
-        ],
+        $rootScope.convidadoAvulso = {
 
-        convidados: [
-            { nome: "nome1", email: "g1@gmail.com", telefone: "1199999999", clienteInterno: "nome1" }
+        }
 
-        ]
-    }
-
-    $rootScope.listaEventos = [{
-            id: '1',
-            nome: 'Evento1',
-            tipo: $rootScope.listaTipos[0],
+        $rootScope.modeloEvento = {
+            nome: '',
+            tipoEvento: $rootScope.listaTipos[0],
             programa: $rootScope.listaProgramas[0],
-            local: 'local 1',
-            dataInicio: new Date('06/29/2016'),
-            horaInicio: '10:20',
-            dataFim: new Date('06/29/2016'),
-            horaFim: '10:30',
-            descricao: 'desc1',
+            local: '',
+            dataInicio: new Date('02/20/2017'),
+            horaInicio: '08:00',
+            dataFim: new Date('02/20/2017'),
+            horaFim: '22:00',
+            descricao: '',
+            templateYMkt: 0,
+            cotas: 200,
+            arquivoBanner: '',
+            arquivoPagina: '',
+            arquivoTeaser: '',
+            arquivoLogomarca: '',
+            arquivoRodape: '',
+            arquivoClassificacao: '',
+            canalEnvio: 0,
+            canalRSVP: 0,
 
-            grupos: [
-                { grupo: $rootScope.listaGrupos[0], clienteInterno: "nome1" }
+            grupos: [],
 
-            ],
-
-            convidados: [
-                { nome: "nome1", email: "g1@gmail.com", telefone: "1199999999", clienteInterno: "nome1" }
-
-            ],
-            /*
-            sexo: 'masculino',
-            email: 'marcos_aurelio@gmail.com',
-            rg: '99899444455',
-            cpf: '77799955500',
-            perfil: 'A',
-            cep: '04013-010',
-            rua: 'Rua jose gomes sá',
-            numero: '21',
-            complemento: '',
-            bairro: 'Vila Mariana',
-            cidade: 'São Paulo',
-            estado: 'SP',
-            pais: 'Brasil',
-            obs: 'Nada',
-            ativo: true,
-            pesquisas: [
-                { respondido: new Date('7/30/2016'), pesquisa: $rootScope.listaPesquisas[0] },
-                { respondido: new Date('5/5/2016'), pesquisa: $rootScope.listaPesquisas[1] },
-                { respondido: null, pesquisa: $rootScope.listaPesquisas[2] },
-                { respondido: null, pesquisa: $rootScope.listaPesquisas[3] },
-                { respondido: null, pesquisa: $rootScope.listaPesquisas[4] }
-            ],
-            anexos: [
-                { id: 1, nome: 'webcam', url: './view/images/h5.jpg', tamanho: '1MB', data: new Date('7/30/2016') },
-                { id: 2, nome: 'rg', url: null, tamanho: '2MB', data: new Date('4/12/2016') },
-                { id: 3, nome: 'cpf', url: null, tamanho: '10MB', data: new Date('1/20/2016') }
-            ]*/
+            convidados: []
         }
 
-    ];
+        $rootScope.listaEventos = [
+
+        ];
 
 
 
-})
+    })
 
 
 
