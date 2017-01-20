@@ -11,7 +11,7 @@ angular.module("App.controllers", [])
     })
     .controller("EventosController", function($scope, $rootScope, $filter) {
         $rootScope.tabactive = 0;
-        $rootScope.viewVoluntario = false;
+        $rootScope.viewEvento = false;
         $scope.collapseFormEvento = true;
 
         function novo() {
@@ -34,6 +34,11 @@ angular.module("App.controllers", [])
                 return $scope.evento.tipoEvento.percs[id];
             }
         }
+        $scope.visualizarEvento = function(evento) {
+            $scope.evento = evento;
+            $rootScope.viewEvento = true;
+            $scope.collapseFormEvento = false;
+        }
         $scope.getCotas = function(id) {
             if ($scope.evento) {
                 return parseInt(($scope.evento.cotas / 100) * $scope.getPercCota(id));
@@ -48,6 +53,13 @@ angular.module("App.controllers", [])
             $scope.evento.convidados.push({ name: $rootScope.convidadoAvulso.nome, email: $rootScope.convidadoAvulso.email, telefone: $rootScope.convidadoAvulso.telefone, clienteInterno: $rootScope.convidadoAvulso.clienteInterno });
             $rootScope.convidadoAvulso = {};
         }
+
+         $scope.closeTabs = function() {
+            $scope.evento = null;
+            $rootScope.viewEvento = false;
+            $scope.collapseFormEvento = true;
+        }
+
 
     })
     .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
@@ -134,7 +146,7 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.listaEventos = [
-
+            { "nome": "Evento Teste1", "tipoEvento": { "name": "Concertos", "percs": [30, 30, 5, 5, 10, 10, 2, 2, 6] }, "programa": { "name": "Budget Q1 - Shows" }, "local": "Ibirapuera", "dataInicio": "2017-02-20T03:00:00.000Z", "horaInicio": "08:00", "dataFim": "2017-02-20T03:00:00.000Z", "horaFim": "22:00", "descricao": "Descrição teste", "templateYMkt": { "name": "Convite Show" }, "cotas": "500", "arquivoBanner": "arquivo1", "arquivoPagina": "arquivo2", "arquivoTeaser": "arquivo3", "arquivoLogomarca": "arquivo4", "arquivoRodape": "arquivo5", "arquivoClassificacao": "arquivo6", "canalEnvio": { "name": "Email" }, "canalRSVP": { "name": "CALL LIST" }, "passWallet": 0, "grupos": [{ "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" }, "clienteInterno": "" }, { "grupo": { "name": "GA-SP Bronze", "desc": "Grupo Alvo São Paulo Bronze" } }], "convidados": [{ "name": "Usuario1", "email": "email@email.com", "telefone": "1199554488" }, { "name": "Usuario2", "email": "user@gmail.com", "telefone": "1198464444", "clienteInterno": "Teste1" }], "id": 0, "data_cadastro": "2017-01-20T04:22:13.487Z", "numeroRSVP": "876877867868" }
         ];
 
 

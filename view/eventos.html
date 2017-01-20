@@ -15,6 +15,7 @@
                 <th>Cotas</th>
                 <th>Grupos</th>
                 <th>Convidados</th>
+                <!-- <th>Ações</th> -->
             </tr>
         </thead>
         <tbody>
@@ -28,12 +29,9 @@
                 <td>{{itemEvento.dataInicio | date:'dd-MM-yyyy'}} - {{itemEvento.horaInicio}}</td>
                 <td>{{itemEvento.cotas}}</td>
                 <td>{{itemEvento.grupos.length}}</td>
-                <td>{{itemEvento.convidadoAvulso.length}}</td>
-                <!-- <td>
-                    <span ng-class="{'label-success':itemEvento.ativo, 'label-danger': !itemEvento.ativo}" class="label"><i class="fa" ng-class="{'fa-check-circle':itemEvento.ativo, 'fa-times': !itemEvento.ativo}"></i></span>
-                </td>
-                <td>{{dataValidade(itemEvento.data_cadastro)}}</td>
-                <td> <span class="btn btn-info btn-xs" ng-click="visualizarEvento(itemEvento)"><i class="fa fa-search" aria-hidden="true"></i></span></td> -->
+                <td>{{itemEvento.convidados.length}}</td>
+                <!-- <td> <span class="btn btn-info btn-xs" ng-click="visualizarEvento(itemVoluntario)"><i class="fa fa-search" aria-hidden="true"></i></span></td> -->
+                
             </tr>
         </tbody>
     </table>
