@@ -55,7 +55,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar Evento</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarEvento()">Salvar Evento</button>
                     </div>
                 </div>
             </uib-tab>
@@ -142,13 +142,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar Convidados</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convidados</button>
                     </div>
                 </div>
             </uib-tab>
             <uib-tab index="2" heading="Cotas">
                 <div class="row flex-row">
-                    <entry title="Cotas" type="text" size="4" model="voluntario.rua"></entry>
+                    <entry title="Cotas" type="text" size="4" model="evento.cotas"></entry>
                 </div>
                 <div class="row flex-row">
                     <div class="table-responsive">
@@ -165,64 +165,64 @@
                             <tbody>
                                 <tr>
                                     <td>Rede Mapfre</td>
-                                    <td></td>
-                                    <td>30%</td>
+                                    <td>{{getCotas(0)}}</td>
+                                    <td>{{getPercCota(0)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Rede BB</td>
-                                    <td></td>
-                                    <td>30%</td>
+                                    <td>{{getCotas(1)}}</td>
+                                    <td>{{getPercCota(1)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Presidencia SH1</td>
-                                    <td></td>
-                                    <td>5%</td>
+                                    <td>{{getCotas(2)}}</td>
+                                    <td>{{getPercCota(2)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Presidencia SH2</td>
-                                    <td></td>
-                                    <td>5%</td>
+                                    <td>{{getCotas(3)}}</td>
+                                    <td>{{getPercCota(3)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>MSF</td>
-                                    <td></td>
-                                    <td>10%</td>
+                                    <td>{{getCotas(4)}}</td>
+                                    <td>{{getPercCota(4)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>BB Seguridade</td>
-                                    <td></td>
-                                    <td>10%</td>
+                                    <td>{{getCotas(5)}}</td>
+                                    <td>{{getPercCota(5)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Agência</td>
-                                    <td></td>
-                                    <td>2%</td>
+                                    <td>{{getCotas(6)}}</td>
+                                    <td>{{getPercCota(6)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Reserva Técnica</td>
-                                    <td></td>
-                                    <td>2%</td>
+                                    <td>{{getCotas(7)}}</td>
+                                    <td>{{getPercCota(7)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Grupo(RH)</td>
-                                    <td></td>
-                                    <td>6%</td>
+                                    <td>{{getCotas(8)}}</td>
+                                    <td>{{getPercCota(0)}}%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarVoluntario()">Salvar Cotas</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarVoluntario()">Salvar Cotas</button>
                     </div>
                 </div>
             </uib-tab>
@@ -280,7 +280,7 @@
                 </div> -->
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" ng-click="salvarEvento()">Salvar Convite</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convite</button>
                     </div>
                 </div>
             </uib-tab>

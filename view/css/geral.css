@@ -600,7 +600,7 @@ a.btn {
     max-height: 22px;
 }
 
-.flex-row .btn {
+.flex-row .btn-space-top {
     margin-top: 22px;
     max-height: 34px;
 }
