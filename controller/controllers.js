@@ -410,7 +410,8 @@ angular.module("App.controllers", [])
                 dataInicio: new Date('06/29/2016'),
                 horaInicio: '10:20',
                 dataFim: new Date('06/29/2016'),
-                horaFim: '10:30'
+                horaFim: '10:30',
+                descricao: 'desc1'
 
 
                 /*
