@@ -119,10 +119,9 @@ Data/hora fim -->
                     <div class="col-md-5 col-border">
                         <div class="row flex-row">
                             <entry title="Grupo Alvo" onlyview="viewEvento" type="select" size="6" model="evento.grupo" list="listaGrupos"></entry>
+                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
                         </div>
-                        <div class="row flex-row">
-                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="12" model="evento.nome"></entry>
-                        </div>
+                        <button type="button" class="btn btn-success" ng-click="addConvidado()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -157,38 +156,43 @@ Data/hora fim -->
                     <div class="col-md-5 col-border">
                         <div class="row flex-row">
                             <entry title="Convidado" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
+                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
                         </div>
-                        <div class="row flex-row">
-                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="12" model="evento.nome"></entry>
-                        </div>
+                        <button type="button" class="btn btn-success" ng-click="addConvidado()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
                                     <thead>
                                         <tr>
-                                            <th>Grupo Alvo</th>
-                                            <th>Descrição</th>
+                                            <th>Cliente Email</th>
+                                            <th>Email</th>
+                                            <th>Telefone</th>
                                             <th>Cliente Interno</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>GA-SP Gold</td>
-                                            <td>Grupo Alvo São Paulo Gold</td>
-                                            <td>Grupo Mafre</td>
-                                        </tr>
-                                        <tr>
-                                            <td>GA-SP Silver</td>
-                                            <td>Grupo Alvo São Paulo Silver</td>
+                                            <td>Joao Marcos</td>
+                                            <td>jm@gmail.com</td>
+                                            <td>1199554433</td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <td>GA-SP Bronze</td>
-                                            <td>Grupo Alvo São Paulo Bronze</td>
+                                            <td>Mauricio tomaz</td>
+                                            <td>maurithgmail.com</td>
+                                            <td>1199855544</td>
+                                            <td>Presidencia SH1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Angelina Razutti</td>
+                                            <td>angel@ig.com.br</td>
+                                            <td>1199445454</td>
                                             <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+
                             </div>
                         </div>
                     </div>
