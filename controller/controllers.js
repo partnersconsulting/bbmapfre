@@ -381,6 +381,24 @@ angular.module("App.controllers", [])
 
         $rootScope.newDate = new Date();
 
+        $rootScope.listaTemplates = [
+            { name: 'Convite Show' },
+            { name: 'Convite Jogo' }
+        ];
+        $rootScope.listaCanaisEnvio = [
+            { name: 'Email' },
+            { name: 'SMS' },
+            { name: 'MAIS EFETIVO' }
+        ];
+        $rootScope.listaCanaisRSVP = [
+            { name: 'CALL LIST' },
+            { name: 'Email' },
+            { name: 'SMS' }
+        ];
+
+
+
+
         $rootScope.listaTipos = [
             { name: 'Concertos' },
             { name: 'Peças de Teatro' },
@@ -396,9 +414,9 @@ angular.module("App.controllers", [])
 
         ];
         $rootScope.listaGrupos = [
-            { name: 'GA-SP Gold' },
-            { name: 'GA-SP Silver' },
-            { name: 'GA-SP Bronze' }
+            { name: 'GA-SP Gold', desc: "Grupo Alvo São Paulo Gold" },
+            { name: 'GA-SP Silver', desc: "Grupo Alvo São Paulo Silver" },
+            { name: 'GA-SP Bronze', desc: "Grupo Alvo São Paulo Bronze" }
 
         ];
 
@@ -413,9 +431,17 @@ angular.module("App.controllers", [])
                 horaInicio: '10:20',
                 dataFim: new Date('06/29/2016'),
                 horaFim: '10:30',
-                descricao: 'desc1'
+                descricao: 'desc1',
 
+                grupos: [
+                    { grupo: $rootScope.listaGrupos[0], clienteInterno: "nome1" }
 
+                ],
+
+                convidados: [
+                    { nome: "nome1", email: "g1@gmail.com", telefone: "1199999999", clienteInterno: "nome1" }
+
+                ],
                 /*
                 sexo: 'masculino',
                 email: 'marcos_aurelio@gmail.com',

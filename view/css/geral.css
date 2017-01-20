@@ -599,3 +599,8 @@ tfoot {
 a.btn {
     max-height: 22px;
 }
+
+.flex-row .btn {
+    margin-top: 22px;
+    max-height: 34px;
+}
