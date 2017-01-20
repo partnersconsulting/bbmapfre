@@ -126,6 +126,7 @@ angular.module("App.controllers", [])
             arquivoClassificacao: '',
             canalEnvio: 0,
             canalRSVP: 0,
+            passWallet: 0,
 
             grupos: [],
 

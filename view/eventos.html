@@ -249,32 +249,33 @@
             </uib-tab>
             <uib-tab index="3" heading="Convite">
                 <div class="row flex-row">
-                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="6" model="evento.numeroRSVP"></entry>
-                    <entry title="Template yMkt" onlyview="viewEvento" type="select" size="6" model="evento.templateYMkt" list="listaTemplates"></entry>
+                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="4" model="evento.numeroRSVP"></entry>
+                    <entry title="Template yMkt" onlyview="viewEvento" type="select" size="4" model="evento.templateYMkt" list="listaTemplates"></entry>
+                    <entry title="Gerar Pass Wallet" onlyview="viewEvento" type="checkbox" size="4" model="evento.passWallet" ></entry>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Banner Convite" onlyview="viewEvento" type="text" size="8" model="evento.arquivoBanner"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
+                    <entry title="Banner Convite" onlyview="viewEvento" type="text" size="5" model="evento.arquivoBanner"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                    <entry title="Página web" onlyview="viewEvento" type="text" size="5" model="evento.arquivoPagina"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Página web" onlyview="viewEvento" type="text" size="8" model="evento.arquivoPagina"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Teaser" onlyview="viewEvento" type="text" size="8" model="evento.arquivoTeaser"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
+                    <entry title="Teaser" onlyview="viewEvento" type="text" size="5" model="evento.arquivoTeaser"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                    <entry title="Logomarca" onlyview="viewEvento" type="text" size="5" model="evento.arquivoLogomarca"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Logomarca" onlyview="viewEvento" type="text" size="8" model="evento.arquivoLogomarca"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Rodapé" onlyview="viewEvento" type="text" size="8" model="evento.arquivoRodape"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
+                    <entry title="Rodapé" onlyview="viewEvento" type="text" size="5" model="evento.arquivoRodape"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                    <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="5" model="evento.arquivoClassificacao"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="8" model="evento.arquivoClassificacao"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Upload</button>
                 </div>
                 <div class="row flex-row">
                     <entry title="Canal de Envio" onlyview="viewEvento" type="select" size="6" model="evento.canalEnvio" list="listaCanaisEnvio"></entry>
