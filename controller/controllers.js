@@ -382,17 +382,17 @@ angular.module("App.controllers", [])
         $rootScope.newDate = new Date();
 
         $rootScope.listaTipos = [
-            {nome: 'Concertos'},
-            {nome: 'Peças de Teatro'},
-            {nome: 'Jogos de Tenis'},
-            {nome: 'Jogos de Futebol'}
+            {name: 'Concertos'},
+            {name: 'Peças de Teatro'},
+            {name: 'Jogos de Tenis'},
+            {name: 'Jogos de Futebol'}
 
         ];
         $rootScope.listaProgramas = [
-            {nome: 'Budget Q1 - Shows'},
-            {nome: 'Budget Q2 - Cliente Silver'},
-            {nome: 'Budget Q2 - Cliente Gold'},
-            {nome: 'Budget Q3'}
+            {name: 'Budget Q1 - Shows'},
+            {name: 'Budget Q2 - Cliente Silver'},
+            {name: 'Budget Q2 - Cliente Gold'},
+            {name: 'Budget Q3'}
 
         ];
 

@@ -2,9 +2,8 @@
     <div class="input-group input-group-lg grupo-busca">
         <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
         <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
-    </div> 
-
-    <table class="table table-hover" >
+    </div>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -13,8 +12,6 @@
                 <th>Programa</th>
                 <th>Local</th>
                 <th>Data</th>
-
-
             </tr>
         </thead>
         <tbody>
@@ -25,8 +22,8 @@
                 <td>{{itemEvento.tipo.nome}}</td>
                 <td>{{itemEvento.programa.nome}}</td>
                 <td>{{itemEvento.local}}</td>
-                <td>{{itemEvento.dataInicio  | date:'dd-MM-yyyy'}} - {{itemEvento.horaInicio}}</td>
-                <td>{{itemEvento.dataFim  | date:'dd-MM-yyyy'}} - {{itemEvento.horaFim}}</td>
+                <td>{{itemEvento.dataInicio | date:'dd-MM-yyyy'}} - {{itemEvento.horaInicio}}</td>
+                <td>{{itemEvento.dataFim | date:'dd-MM-yyyy'}} - {{itemEvento.horaFim}}</td>
                 <!-- <td>
                     <span ng-class="{'label-success':itemEvento.ativo, 'label-danger': !itemEvento.ativo}" class="label"><i class="fa" ng-class="{'fa-check-circle':itemEvento.ativo, 'fa-times': !itemEvento.ativo}"></i></span>
                 </td>
@@ -41,14 +38,30 @@
             <uib-tab index="0" heading="Evento">
                 <form name="formulario">
                     <div class="row flex-row">
-
-                        <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="3" model="evento.tipo" list="listaTiposEvento"></entry>
-
-<!-- 
+                        <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaTipos"></entry>
+                        <entry title="Programa" onlyview="viewEvento" type="select" size="6" model="evento.tipo" list="listaProgramas"></entry>
+                    </div>
+                    <div class="row flex-row">
+                        <entry title="Nome" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
+                        <entry title="Local" onlyview="viewEvento" type="text" size="6" model="evento.local"></entry>
+                    </div>
+                    <div class="row flex-row">
+                        <entry title="Data inicio" onlyview="viewVoluntario" type="datepicker" size="3" model="evento.dataInicio"></entry>
+                        <entry title="Hora inicio" onlyview="viewEvento" type="text" size="2" model="evento.horaInicio"></entry>
+                        <entry title="Data/hora inicio" onlyview="viewVoluntario" type="datepicker" size="3" model="evento.dataFim"></entry>
+                        <entry title="Hora fim" onlyview="viewEvento" type="text" size="2" model="evento.horaFim"></entry>
+                    </div>
+                    <!-- 
     Concertos
     Peças de Teatro
     Jogos de Tenis
     Jogos de Futebol
+
+
+    dataInicio: new Date('06/29/2016'),
+                horaInicio: '10:20',
+                dataFim: new Date('06/29/2016'),
+                horaFim: '10:30'
 
 Programa
     Budget Q1 - Shows
@@ -61,9 +74,7 @@ Local
 Descrição
 Data/hora inicio
 Data/hora fim -->
-                    
-                    </div>
-                     <!--    <entry title="Nome" onlyview="viewVoluntario" type="text" size="4" model="voluntario.nome"></entry>
+                    <!--    <entry title="Nome" onlyview="viewVoluntario" type="text" size="4" model="voluntario.nome"></entry>
                         <entry title="Data Nascimento" onlyview="viewVoluntario" type="datepicker" size="3" model="voluntario.data_nascimento"></entry>
                         <entry title="Telefone" onlyview="viewVoluntario" type="phone" size="3" model="voluntario.telefone"></entry>
                     <div class="row flex-row">
@@ -99,7 +110,6 @@ Data/hora fim -->
                         <entry title="obs" onlyview="viewVoluntario" type="textarea" size="12" model="voluntario.obs"></entry>
                     </div> -->
                 </form>
-                
             </uib-tab>
             <uib-tab index="1" heading="Convidados">
                 <!-- <div class="input-group input-group-lg grupo-busca">
@@ -129,7 +139,7 @@ Data/hora fim -->
                 </div> -->
             </uib-tab>
             <uib-tab index="2" heading="Cotas">
-               <!--  <div class="row">
+                <!--  <div class="row">
                     <div class="col-md-3">
 
                         <img ng-show="voluntario.anexos" src="{{voluntario.anexos[0].url}}" alt="..." class="center-block img-circle img-thumbnail img-responsive">
@@ -164,7 +174,7 @@ Data/hora fim -->
                 </div> -->
             </uib-tab>
             <uib-tab index="3" heading="Convite">
-               <!--  <div class="row">
+                <!--  <div class="row">
                     <entry title="Data Validade" onlyview="true" type="text" size="4" model="dataValidade(voluntario.data_cadastro)"></entry>
                     <entry title="Status Atual" onlyview="true" type="text" size="4" model="voluntario.status.nome.code"></entry>
                     <entry ng-show="voluntario.status.motivo.code" title="Motivo Status" onlyview="true" type="text" size="4" model="voluntario.status.motivo.code"></entry>
