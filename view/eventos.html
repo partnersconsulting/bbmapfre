@@ -3,7 +3,6 @@
         <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
         <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
     </div>
-   
     <div uib-collapse="collapseFormEvento" class="well">
         <button type="button" ng-click="closeTabs()" class="btn btn-danger  pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         <uib-tabset active="tabactive">
@@ -11,7 +10,7 @@
                 <div class="row flex-row">
                     <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="5" model="evento.tipoEvento" list="listaTipos"></entry>
                     <entry title="Programa" onlyview="viewEvento" type="select" size="5" model="evento.programa" list="listaProgramas"></entry>
-                     <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')" class="btn btn-primary pull-right btn-space-top" target="_blank" >Programas</a>
+                    <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')" class="btn btn-primary pull-right btn-space-top" target="_blank">Programas</a>
                 </div>
                 <div class="row flex-row">
                     <entry title="Nome" onlyview="viewEvento" type="text" size="6" model="evento.nome"></entry>
@@ -40,6 +39,7 @@
                             <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoGrupoAlvo.clienteInterno"></entry>
                         </div>
                         <button type="button" class="btn btn-success" ng-click="addConvidadoGrupoAlvo()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
+                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS" class="btn btn-primary" target="_blank" >Grupos Alvos</a>
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -81,6 +81,7 @@
                             <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.clienteInterno"></entry>
                         </div>
                         <button type="button" class="btn btn-success" ng-click="addConvidadoAvulso()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
+
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -93,8 +94,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-
                                         <tr ng-repeat="convidado in evento.convidados">
                                             <td>{{convidado.name}}</td>
                                             <td>{{convidado.email}}</td>
@@ -121,13 +120,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convidados</button>
+                        <button type="submit" class="btn btn-success pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convidados</button>
                     </div>
                 </div>
             </uib-tab>
             <uib-tab index="2" heading="Cotas">
                 <div class="row flex-row">
                     <entry title="Cotas" type="text" size="4" model="evento.cotas"></entry>
+                    <a class="btn btn-success pull-right btn-space-top" href="#">Por Sugestão</a>
+                    <a class="btn btn-default pull-right btn-space-top" href="#">Por Percentual</a>
+                    <a class="btn btn-warning pull-right btn-space-top" href="#">Por Quantidade</a>
                 </div>
                 <div class="row flex-row">
                     <div class="table-responsive">
@@ -217,9 +219,13 @@
             </uib-tab>
             <uib-tab index="3" heading="Convite">
                 <div class="row flex-row">
-                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="4" model="evento.numeroRSVP"></entry>
-                    <entry title="Template yMkt" onlyview="viewEvento" type="select" size="4" model="evento.templateYMkt" list="listaTemplates"></entry>
-                    <entry title="Gerar Pass Wallet" onlyview="viewEvento" type="checkbox" size="4" model="evento.passWallet" ></entry>
+                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="3" model="evento.numeroRSVP"></entry>
+
+                    <entry title="Template yMkt" onlyview="viewEvento" type="select" size="3" model="evento.templateYMkt" list="listaTemplates"></entry>
+
+                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX" class="btn btn-primary pull-right btn-space-top" ">Templates</a>
+
+                    <entry title="Gerar Pass Wallet" onlyview="viewEvento" type="checkbox" size="3" model="evento.passWallet"></entry>
                 </div>
                 <div class="row flex-row">
                     <entry title="Banner Convite" onlyview="viewEvento" type="text" size="5" model="evento.arquivoBanner"></entry>
@@ -266,8 +272,7 @@
             </uib-tab>
         </uib-tabset>
     </div>
-
- <table class="table table-hover">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -295,10 +300,8 @@
                 <td>{{itemEvento.grupos.length}}</td>
                 <td>{{itemEvento.convidados.length}}</td>
                 <!-- <td> <span class="btn btn-info btn-xs" ng-click="visualizarEvento(itemVoluntario)"><i class="fa fa-search" aria-hidden="true"></i></span></td> -->
-                
             </tr>
         </tbody>
     </table>
-
     <button type="button" class="btn btn-success pull-right" ng-show="collapseFormEvento" ng-click="novoEvento()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
 </panel>

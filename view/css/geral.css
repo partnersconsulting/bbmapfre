@@ -596,11 +596,12 @@ tfoot {
     display: inline-block;*/
 }
 
-a.btn {
+/*a.btn {
     max-height: 22px;
 }
-
+*/
 .flex-row .btn-space-top {
     margin-top: 22px;
     max-height: 34px;
+        margin-right: 10px;
 }
