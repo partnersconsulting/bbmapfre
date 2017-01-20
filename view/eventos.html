@@ -22,11 +22,11 @@
                 <!-- 'tr-disabled':!itemEvento.ativo,  -->
                 <td>{{itemEvento.id}}</td>
                 <td>{{itemEvento.nome}}</td>
-                <td>{{itemEvento.tipo}}</td>
-                <td>{{itemEvento.programa}}</td>
+                <td>{{itemEvento.tipo.nome}}</td>
+                <td>{{itemEvento.programa.nome}}</td>
                 <td>{{itemEvento.local}}</td>
-                <td>{{itemEvento.dataInicio}} - {{itemEvento.horaInicio}}</td>
-                <td>{{itemEvento.dataFim}} - {{itemEvento.horaFim}}</td>
+                <td>{{itemEvento.dataInicio  | date:'dd-MM-yyyy'}} - {{itemEvento.horaInicio}}</td>
+                <td>{{itemEvento.dataFim  | date:'dd-MM-yyyy'}} - {{itemEvento.horaFim}}</td>
                 <!-- <td>
                     <span ng-class="{'label-success':itemEvento.ativo, 'label-danger': !itemEvento.ativo}" class="label"><i class="fa" ng-class="{'fa-check-circle':itemEvento.ativo, 'fa-times': !itemEvento.ativo}"></i></span>
                 </td>
