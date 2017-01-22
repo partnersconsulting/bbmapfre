@@ -6,5 +6,15 @@
             <span class="text">{{link.text}}</span>
         </a>
     </div>
-      <!-- {{listaEventos}} -->
+    <!--  -->
+    <div ng-repeat="group in linksHome" class="link-group">
+        <h2>{{group.title}}</h2>
+            <a href="{{itemGroup.link}}" target="_blank" ng-repeat="itemGroup in group.list" class="tile">
+                <i class="fa fa-2x {{itemGroup.icon}}" aria-hidden="true"></i>
+                <span class="title">{{itemGroup.title}}</span>
+                <span class="text">{{itemGroup.text}}</span>
+            </div>
+
+    </div>
+    <!-- {{listaEventos}} -->
 </panel>
