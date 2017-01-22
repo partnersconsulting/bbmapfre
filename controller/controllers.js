@@ -56,7 +56,7 @@ angular.module("App.controllers", [])
 
         $scope.getPercCota = function(id) {
             if ($scope.evento) {
-                return $scope.evento.tipoEvento.percs[id];
+                return parseInt($scope.evento.tipoEvento.percs[id]);
             }
         }
         $scope.visualizarEvento = function(evento) {
@@ -85,6 +85,18 @@ angular.module("App.controllers", [])
             $scope.collapseFormEvento = true;
         }
 
+        $scope.tipoCota="s";
+
+        $scope.selectCota = function(tipo) {
+            $scope.tipoCota = tipo;
+
+            if (tipo == "s") {
+            } else if (tipo == "q") {
+
+            } else if (tipo == "p") {
+
+            }
+        }
 
     })
     .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
@@ -112,6 +124,18 @@ angular.module("App.controllers", [])
             { name: 'CALL LIST' },
             { name: 'Email' },
             { name: 'SMS' }
+        ];
+
+        $rootScope.listaLabelsTipos = [
+            { name: 'Rede Mapfre' },
+            { name: 'Rede BB' },
+            { name: 'Presidencia SH1' },
+            { name: 'Presidencia SH2' },
+            { name: 'MSF' },
+            { name: 'BB Seguridade' },
+            { name: 'Agência' },
+            { name: 'Reserva Técnica' },
+            { name: 'Grupo(RH)' }
         ];
 
         $rootScope.listaTipos = [
@@ -172,9 +196,9 @@ angular.module("App.controllers", [])
 
         $rootScope.listaEventos = [
             { "nome": "BANDA MANTIQUEIRA", "tipoEvento": { "name": "Concertos", "percs": [30, 30, 5, 5, 10, 10, 2, 2, 6] }, "programa": { "name": "Budget Q1 - Shows" }, "local": "Sesc Jundiaí", "dataInicio": "2017-02-20T03:00:00.000Z", "horaInicio": "20:00", "dataFim": "2017-02-20T03:00:00.000Z", "horaFim": "22:00", "descricao": "", "templateYMkt": 0, "cotas": "100", "arquivoBanner": "", "arquivoPagina": "", "arquivoTeaser": "", "arquivoLogomarca": "", "arquivoRodape": "", "arquivoClassificacao": "", "canalEnvio": 0, "canalRSVP": 0, "passWallet": 0, "grupos": [{ "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" } }], "convidados": [], "id": 0, "data_cadastro": "2017-01-20T12:28:50.862Z" },
-            {"nome":"MARIA GADÚ","tipoEvento":{"name":"Concertos","percs":[30,30,5,5,10,10,2,2,6]},"programa":{"name":"Budget Q1 - Shows"},"local":"CARAGUATATUBA, SP","dataInicio":"2017-02-22T03:00:00.000Z","horaInicio":"16:00","dataFim":"2017-02-22T03:00:00.000Z","horaFim":"22:00","descricao":"","templateYMkt":0,"cotas":"400","arquivoBanner":"","arquivoPagina":"","arquivoTeaser":"","arquivoLogomarca":"","arquivoRodape":"","arquivoClassificacao":"","canalEnvio":0,"canalRSVP":0,"passWallet":0,"grupos":[{"grupo":{"name":"GA-SP Gold","desc":"Grupo Alvo São Paulo Gold"}},{"grupo":{"name":"GA-SP Silver","desc":"Grupo Alvo São Paulo Silver"}},{"grupo":{"name":"GA-SP Bronze","desc":"Grupo Alvo São Paulo Bronze"}}],"convidados":[{"name":"cliente1"}],"id":1,"data_cadastro":"2017-01-20T12:31:22.515Z"},
-            {"nome":"JOÃO BOSCO E VINÍCIUS","tipoEvento":{"name":"Concertos","percs":[30,30,5,5,10,10,2,2,6]},"programa":{"name":"Budget Q2 - Cliente Gold"},"local":"CARAGUATATUBA, SP","dataInicio":"2017-03-07T03:00:00.000Z","horaInicio":"20:00","dataFim":"2017-03-07T03:00:00.000Z","horaFim":"22:00","descricao":"","templateYMkt":0,"cotas":"50","arquivoBanner":"","arquivoPagina":"","arquivoTeaser":"","arquivoLogomarca":"","arquivoRodape":"","arquivoClassificacao":"","canalEnvio":0,"canalRSVP":0,"passWallet":0,"grupos":[{},{"grupo":{"name":"GA-SP Gold","desc":"Grupo Alvo São Paulo Gold"}},{"grupo":{"name":"GA-SP Silver","desc":"Grupo Alvo São Paulo Silver"}}],"convidados":[{"name":"cliente"},{"name":"cliente"}],"id":2,"data_cadastro":"2017-01-20T12:34:50.432Z"},
-            {"nome":"São Paulo X Ponte Petra","tipoEvento":{"name":"Jogos de Futebol","percs":[10,10,10,30,10,10,5,5,10]},"programa":{"name":"Budget Q3"},"local":"Morumbi","dataInicio":"2017-02-12T02:00:00.000Z","horaInicio":"16:00","dataFim":"2017-02-12T02:00:00.000Z","horaFim":"22:00","descricao":"","templateYMkt":0,"cotas":"10000","arquivoBanner":"","arquivoPagina":"","arquivoTeaser":"","arquivoLogomarca":"","arquivoRodape":"","arquivoClassificacao":"","canalEnvio":0,"canalRSVP":0,"passWallet":0,"grupos":[{"grupo":{"name":"GA-SP Gold","desc":"Grupo Alvo São Paulo Gold"}},{"grupo":{"name":"GA-SP Silver","desc":"Grupo Alvo São Paulo Silver"}},{"grupo":{"name":"GA-SP Bronze","desc":"Grupo Alvo São Paulo Bronze"}}],"convidados":[{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"},{"name":"cliente"}],"id":3,"data_cadastro":"2017-01-20T12:37:20.001Z"}
+            { "nome": "MARIA GADÚ", "tipoEvento": { "name": "Concertos", "percs": [30, 30, 5, 5, 10, 10, 2, 2, 6] }, "programa": { "name": "Budget Q1 - Shows" }, "local": "CARAGUATATUBA, SP", "dataInicio": "2017-02-22T03:00:00.000Z", "horaInicio": "16:00", "dataFim": "2017-02-22T03:00:00.000Z", "horaFim": "22:00", "descricao": "", "templateYMkt": 0, "cotas": "400", "arquivoBanner": "", "arquivoPagina": "", "arquivoTeaser": "", "arquivoLogomarca": "", "arquivoRodape": "", "arquivoClassificacao": "", "canalEnvio": 0, "canalRSVP": 0, "passWallet": 0, "grupos": [{ "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" } }, { "grupo": { "name": "GA-SP Silver", "desc": "Grupo Alvo São Paulo Silver" } }, { "grupo": { "name": "GA-SP Bronze", "desc": "Grupo Alvo São Paulo Bronze" } }], "convidados": [{ "name": "cliente1" }], "id": 1, "data_cadastro": "2017-01-20T12:31:22.515Z" },
+            { "nome": "JOÃO BOSCO E VINÍCIUS", "tipoEvento": { "name": "Concertos", "percs": [30, 30, 5, 5, 10, 10, 2, 2, 6] }, "programa": { "name": "Budget Q2 - Cliente Gold" }, "local": "CARAGUATATUBA, SP", "dataInicio": "2017-03-07T03:00:00.000Z", "horaInicio": "20:00", "dataFim": "2017-03-07T03:00:00.000Z", "horaFim": "22:00", "descricao": "", "templateYMkt": 0, "cotas": "50", "arquivoBanner": "", "arquivoPagina": "", "arquivoTeaser": "", "arquivoLogomarca": "", "arquivoRodape": "", "arquivoClassificacao": "", "canalEnvio": 0, "canalRSVP": 0, "passWallet": 0, "grupos": [{}, { "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" } }, { "grupo": { "name": "GA-SP Silver", "desc": "Grupo Alvo São Paulo Silver" } }], "convidados": [{ "name": "cliente" }, { "name": "cliente" }], "id": 2, "data_cadastro": "2017-01-20T12:34:50.432Z" },
+            { "nome": "São Paulo X Ponte Petra", "tipoEvento": { "name": "Jogos de Futebol", "percs": [10, 10, 10, 30, 10, 10, 5, 5, 10] }, "programa": { "name": "Budget Q3" }, "local": "Morumbi", "dataInicio": "2017-02-12T02:00:00.000Z", "horaInicio": "16:00", "dataFim": "2017-02-12T02:00:00.000Z", "horaFim": "22:00", "descricao": "", "templateYMkt": 0, "cotas": "10000", "arquivoBanner": "", "arquivoPagina": "", "arquivoTeaser": "", "arquivoLogomarca": "", "arquivoRodape": "", "arquivoClassificacao": "", "canalEnvio": 0, "canalRSVP": 0, "passWallet": 0, "grupos": [{ "grupo": { "name": "GA-SP Gold", "desc": "Grupo Alvo São Paulo Gold" } }, { "grupo": { "name": "GA-SP Silver", "desc": "Grupo Alvo São Paulo Silver" } }, { "grupo": { "name": "GA-SP Bronze", "desc": "Grupo Alvo São Paulo Bronze" } }], "convidados": [{ "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }, { "name": "cliente" }], "id": 3, "data_cadastro": "2017-01-20T12:37:20.001Z" }
 
         ];
 

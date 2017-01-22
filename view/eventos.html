@@ -127,9 +127,9 @@
             <uib-tab index="2" heading="Cotas">
                 <div class="row flex-row">
                     <entry title="Cotas" type="text" size="4" model="evento.cotas"></entry>
-                    <a class="btn btn-success pull-right btn-space-top" href="#">Por Sugestão</a>
-                    <a class="btn btn-default pull-right btn-space-top" href="#">Por Percentual</a>
-                    <a class="btn btn-warning pull-right btn-space-top" href="#">Por Quantidade</a>
+                    <a id="porSugestao" ng-disabled="tipoCota=='s'" class="btn btn-primary pull-right btn-space-top" ng-click="selectCota('s')">Por Sugestão</a>
+                    <a id="porPercentual" ng-disabled="tipoCota=='p'" class="btn btn-primary pull-right btn-space-top" ng-click="selectCota('p')">Por Percentual</a>
+                    <a id="porQuantidade" ng-disabled="tipoCota=='q'" class="btn btn-primary pull-right btn-space-top" ng-click="selectCota('q')">Por Quantidade</a>
                 </div>
                 <div class="row flex-row">
                     <div class="table-responsive">
@@ -144,69 +144,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Rede Mapfre</td>
-                                    <td>{{getCotas(0)}}</td>
-                                    <td>{{getPercCota(0)}}%</td>
+           
+                                <tr ng-repeat="(key, label) in listaLabelsTipos">
+                                    <td>{{label.name}}</td>
+
+                                    <td ng-hide="tipoCota=='q'">{{getCotas(key)}}</td>
+                                    <td ng-show="tipoCota=='q'"><input type="number" id="q{{key}}"  value="{{getCotas(key)}}"></td>
+                                    <td ng-hide="tipoCota=='p'">{{getPercCota(key)}}%</td>
+                                    <td ng-show="tipoCota=='p'"><input type="number" id="p{{key}}"  max="100" value="{{getPercCota(key)}}">%</td>
+
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td>Rede BB</td>
-                                    <td>{{getCotas(1)}}</td>
-                                    <td>{{getPercCota(1)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Presidencia SH1</td>
-                                    <td>{{getCotas(2)}}</td>
-                                    <td>{{getPercCota(2)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Presidencia SH2</td>
-                                    <td>{{getCotas(3)}}</td>
-                                    <td>{{getPercCota(3)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>MSF</td>
-                                    <td>{{getCotas(4)}}</td>
-                                    <td>{{getPercCota(4)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>BB Seguridade</td>
-                                    <td>{{getCotas(5)}}</td>
-                                    <td>{{getPercCota(5)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Agência</td>
-                                    <td>{{getCotas(6)}}</td>
-                                    <td>{{getPercCota(6)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Reserva Técnica</td>
-                                    <td>{{getCotas(7)}}</td>
-                                    <td>{{getPercCota(7)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Grupo(RH)</td>
-                                    <td>{{getCotas(8)}}</td>
-                                    <td>{{getPercCota(0)}}%</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -223,30 +173,36 @@
 
                     <entry title="Template yMkt" onlyview="viewEvento" type="select" size="3" model="evento.templateYMkt" list="listaTemplates"></entry>
 
-                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX" class="btn btn-primary pull-right btn-space-top" ">Templates</a>
+                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX" target="_blank" class="btn btn-primary pull-right btn-space-top" ">Templates</a>
 
                     <entry title="Gerar Pass Wallet" onlyview="viewEvento" type="checkbox" size="3" model="evento.passWallet"></entry>
                 </div>
                 <div class="row flex-row">
-                    <entry title="Banner Convite" onlyview="viewEvento" type="text" size="5" model="evento.arquivoBanner"></entry>
+                    <entry title="Banner Convite" onlyview="viewEvento" type="text" size="4" model="evento.arquivoBanner"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                    <entry title="Página web" onlyview="viewEvento" type="text" size="5" model="evento.arquivoPagina"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                </div>
-                <div class="row flex-row">
-                </div>
-                <div class="row flex-row">
-                    <entry title="Teaser" onlyview="viewEvento" type="text" size="5" model="evento.arquivoTeaser"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                    <entry title="Logomarca" onlyview="viewEvento" type="text" size="5" model="evento.arquivoLogomarca"></entry>
+                    <entry title="Página web" onlyview="viewEvento" type="text" size="4" model="evento.arquivoPagina"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
                 </div>
                 <div class="row flex-row">
                 </div>
                 <div class="row flex-row">
-                    <entry title="Rodapé" onlyview="viewEvento" type="text" size="5" model="evento.arquivoRodape"></entry>
+                    <entry title="Teaser" onlyview="viewEvento" type="text" size="4" model="evento.arquivoTeaser"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                    <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="5" model="evento.arquivoClassificacao"></entry>
+                    <entry title="Logomarca" onlyview="viewEvento" type="text" size="4" model="evento.arquivoLogomarca"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                </div>
+                <div class="row flex-row">
+                </div>
+                <div class="row flex-row">
+                    <entry title="Rodapé" onlyview="viewEvento" type="text" size="4" model="evento.arquivoRodape"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                    <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="4" model="evento.arquivoClassificacao"></entry>
+                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
                     <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
                 </div>
                 <div class="row flex-row">
@@ -266,7 +222,7 @@
                 </div> -->
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convite</button>
+                        <button type="submit" class="btn btn-success pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convite</button>
                     </div>
                 </div>
             </uib-tab>
