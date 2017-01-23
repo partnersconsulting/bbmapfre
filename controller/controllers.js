@@ -339,90 +339,108 @@ angular.module("App.controllers", [])
                 list: [{
                     title: "Dashboards BOC",
                     icon:'fa fa-th',
-                    link: "https://epmprod88bd242fdb0.us1.hana.ondemand.com/sap/fpa/ui/tenant/PRESALESBRAZIL"
+                    link: "https://epmprod88bd242fdb0.us1.hana.ondemand.com/sap/fpa/ui/tenant/PRESALESBRAZIL",
+                    target: '_blank'
                 }, {
                     title: "Dashboard Executivo",
                     icon:'fa-th-large',
-                    link: "https://coeportal218.saphosting.de/sap/ead/fnd/ui/index.html?sap-language=EN&sap-sbee-config=headerless&sap-sbee-nav=%2fdashboard%2f1&ICON=sap-icon%3a%2f%2fbbyd-dashboard"
+                    link: "https://coeportal218.saphosting.de/sap/ead/fnd/ui/index.html?sap-language=EN&sap-sbee-config=headerless&sap-sbee-nav=%2fdashboard%2f1&ICON=sap-icon%3a%2f%2fbbyd-dashboard",
+                    target: '_blank'
                 }]
             }, {
                 title: "Insights",
                 list: [{
                     title: "Dashboard de Contatos",
-                    icon:'fa-id-card-o',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#CONTACTENGAGEMENT"
+                    icon:'fa fa-th',
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#CONTACTENGAGEMENT",
+                    target: '_blank'
                 }, {
                     title: "Análise de Sentimento",
                     icon:'fa-line-chart',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#SENTIMENTANALYTICS"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#SENTIMENTANALYTICS",
+                    target: '_blank'
                 }, {
                     title: "Análise de Jornada",
                     icon:'fa-pie-chart',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#CustomerJourney-viewCustomerJourney&/variant/id_1438961059809_54"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#CustomerJourney-viewCustomerJourney&/variant/id_1438961059809_54",
+                    target: '_blank'
                 }]
             }, {
                 title: "Base de Marketing",
                 list: [{
                     title: "Contatos",
-                    icon:'fa-id-card-o',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#CONOWL"
+                    icon:'fa-users',
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#CONOWL",
+                    target: '_blank'
                 }, {
                     title: "Importação de Dados",
                     icon:'fa-upload',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#IMPORT_CSV"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#IMPORT_CSV",
+                    target: '_blank'
                 }, {
                     title: "Criação de Scores",
                     icon:'fa-line-chart',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#SimpleScores-create"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#SimpleScores-create",
+                    target: '_blank'
                 }]
             }, {
                 title: "Recomendações & Predições",
                 list: [{
                     title: "Modelos de Recomendação",
                     icon:'fa-share-alt-square',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRODRECO"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRODRECO",
+                    target: '_blank'
                 }, {
                     title: "Algorítimos de Recommendação",
                     icon:'fa-code',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-algorithmDefaults&/Algorithms/ERP_SDITEM_CYCLIC_ITEMS"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-algorithmDefaults&/Algorithms/ERP_SDITEM_CYCLIC_ITEMS",
+                    target: '_blank'
                 }, {
                     title: "Cenários de Recommendação",
                     icon:'fa-retweet',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-maintainScenario&/Scenarios/ACCESSORIES"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-maintainScenario&/Scenarios/ACCESSORIES",
+                    target: '_blank'
                 }, {
                     title: "Estratificação",
                     icon:'fa-external-link',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#STR"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#STR",
+                    target: '_blank'
                 }, {
                     title: "Estudio Preditivo ",
                     icon:'fa-codiepie',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRED_MODELS"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRED_MODELS",
+                    target: '_blank'
                 }]
             }, {
                 title: "Segmentação de Clientes",
                 list: [{
                     title: "Modelo de Segmentação",
                     icon:'fa-modx',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#SEGMENTATION"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#SEGMENTATION",
+                    target: '_blank'
                 }, {
                     title: "Target Groups",
                     icon:'fa-bullseye',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS",
+                    target: '_blank'
                 }]
             }, {
                 title: "Campanhas & Ofertas",
                 list: [{
                     title: "Canais de Comunicação",
                     icon:'fa-comments',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#SenderProfiles-maintain&/detail/CampaignSenderProfiles('MAIL')"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#SenderProfiles-maintain&/detail/CampaignSenderProfiles('MAIL')",
+                    target: '_blank'
                 }, {
                     title: "Estúdio de Templates",
                     icon:'fa-file-text',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX",
+                    target: '_blank'
                 }, {
                     title: "Campanhas",
                     icon:'fa-compass',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#INITIATIVES"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#INITIATIVES",
+                    target: '_blank'
                 }, {
                     title: "Calendário de Marketing",
                     icon:'fa-calendar',
@@ -430,33 +448,39 @@ angular.module("App.controllers", [])
                 }, {
                     title: "Ofertas",
                     icon:'fa-gift',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-startManageOffer"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-startManageOffer",
+                    target: '_blank'
                 }]
             }, {
                 title: "Eventos",
                 list: [{
                     title: "Gerenciamento",
                     icon:'fa-calendar',
-                    link: "#/cadastro_evento"
+                    link: "#/cadastro_evento",
+                    target: '_self'
                 }, {
                     title: "Cadastros",
                     icon:'fa-pencil-square-o',
-                    link: "#/cadastros"
+                    link: "#/cadastros",
+                    target: '_self'
                 }]
             }, {
                 title: "Gastos",
                 list: [{
                     title: "Programas",
                     icon:'fa-tasks',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')",
+                    target: '_blank'
                 }, {
                     title: "Adicionar Gastos de Marketing",
                     icon:'fa-money',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Initiative-spendQuickentry&/sap-iapp-state=ASQ611NVOC0M1F55Q5P00J7TPGNQ0RKB7OFDBBW5"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Initiative-spendQuickentry&/sap-iapp-state=ASQ611NVOC0M1F55Q5P00J7TPGNQ0RKB7OFDBBW5",
+                    target: '_blank'
                 }, {
                     title: "Detalhes de Gastos de Marketing",
                     icon:'fa-info-circle',
-                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Initiative-spendMaintenance&/detail/Initiatives('0000010194')/sap-iapp-state=ASQ612MWJHUMDWK50SNH67ZNR6FP06MVVYBK1Z9U"
+                    link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Initiative-spendMaintenance&/detail/Initiatives('0000010194')/sap-iapp-state=ASQ612MWJHUMDWK50SNH67ZNR6FP06MVVYBK1Z9U",
+                    target: '_blank'
                 }]
             }
 
