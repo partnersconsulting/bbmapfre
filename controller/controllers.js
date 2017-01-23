@@ -483,10 +483,7 @@ angular.module("App.controllers", [])
                     target: '_blank'
                 }]
             }
-
-
         ]
-
     })
 
 
