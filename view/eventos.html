@@ -37,7 +37,8 @@
                     <div class="col-md-5 col-border">
                         <div class="row flex-row">
                             <entry title="Grupo Alvo" onlyview="viewEvento" type="select" size="6" model="convidadoGrupoAlvo.grupo" list="listaGrupos"></entry>
-                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoGrupoAlvo.clienteInterno"></entry>
+                            <!-- <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoGrupoAlvo.clienteInterno"></entry> -->
+                             <entry title="Cliente Interno" onlyview="viewEvento" type="select" size="6" model="convidadoGrupoAlvo.clienteInterno" list="listaClientesInternos"></entry>
                         </div>
                         <button type="button" class="btn btn-success" ng-click="addConvidadoGrupoAlvo()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
                         <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/percsui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS" class="btn btn-primary" target="_blank">Grupos Alvos</a>
@@ -55,7 +56,7 @@
                                         <tr ng-repeat="grupo in evento.grupos">
                                             <td>{{grupo.grupo.name}}</td>
                                             <td>{{grupo.grupo.desc}}</td>
-                                            <td>{{grupo.clienteInterno}}</td>
+                                            <td>{{grupo.clienteInterno.name}}</td>
                                         </tr>
                                         <!-- <tr>
                                             <td>GA-SP Silver</td>
@@ -79,7 +80,10 @@
                         </div>
                         <div class="row flex-row">
                             <entry title="Telefone" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.telefone"></entry>
-                            <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.clienteInterno"></entry>
+                            <!-- <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.clienteInterno"></entry> -->
+
+                            <entry title="Cliente Interno" onlyview="viewEvento" type="select" size="6" model="convidadoAvulso.clienteInterno" list="listaClientesInternos"></entry>
+                            
                         </div>
                         <button type="button" class="btn btn-success" ng-click="addConvidadoAvulso()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
                         <div class="row flex-row">
@@ -98,7 +102,7 @@
                                             <td>{{convidado.name}}</td>
                                             <td>{{convidado.email}}</td>
                                             <td>{{convidado.telefone}}</td>
-                                            <td>{{convidado.clienteInterno}}</td>
+                                            <td>{{convidado.clienteInterno.name}}</td>
                                         </tr>
                                         <!-- <tr>
                                             <td>Mauricio tomaz</td>
@@ -251,6 +255,7 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Tipo</th>
+                <th>SubTipo</th>
                 <th>Programa</th>
                 <th>Local</th>
                 <th>Data Inicio</th>
@@ -261,11 +266,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="itemEvento in listaEventos | filter:filtro " ng-class="{ 'tr-selected': itemEvento.id==e vento.id} ">
+            <tr ng-repeat="itemEvento in listaEventos | filter:filtro " ng-class="{ 'tr-selected': itemEvento.id==evento.id} ">
                 <!-- 'tr-disabled':!itemEvento.ativo,  -->
                 <td>{{itemEvento.id + 1}}</td>
                 <td>{{itemEvento.nome}}</td>
                 <td>{{itemEvento.tipoEvento.name}}</td>
+                <td>{{itemEvento.subTipoEvento.name}}</td>
                 <td>{{itemEvento.programa.name}}</td>
                 <td>{{itemEvento.local}}</td>
                 <td>{{itemEvento.dataInicio | date:'dd-MM-yyyy'}} - {{itemEvento.horaInicio}}</td>
