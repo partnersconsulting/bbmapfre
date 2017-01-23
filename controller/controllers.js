@@ -85,17 +85,49 @@ angular.module("App.controllers", [])
             $scope.collapseFormEvento = true;
         }
 
+        $rootScope.totalQ = 0;
+        $rootScope.totalP = 0;
+
         $scope.tipoCota = "s";
 
         $scope.selectCota = function(tipo) {
-            $scope.tipoCota = tipo;
+            /*$scope.tipoCota = tipo;
 
-            if (tipo == "s") {} else if (tipo == "q") {
 
-            } else if (tipo == "p") {
+            this.calcCotas();
 
+
+            if (tipo == "s") {
+
+            } else if (tipo == "q") {} else if (tipo == "p") {
+
+            }*/
+        }
+
+        $scope.teste1 = function() {
+            console.log('teste(0) ');
+            this.calcCotas();
+        }
+        $scope.calcCotas = function() {
+
+            var list = $rootScope.listaCalcTipos;
+
+
+            //$rootScope.totalQ = 0;
+            //$rootScope.totalP = 0;
+
+            for (var i = 0; i < list.length; i++) {
+                list[i].values[0] = this.getCotas(i);
+                $rootScope.totalQ += list[i].values[0];
+
+
+                list[i].values[1] = this.getPercCota(i);
+                $rootScope.totalP += list[i].values[1];
             }
         }
+
+
+
 
     })
     .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
@@ -125,23 +157,103 @@ angular.module("App.controllers", [])
             { name: 'SMS' }
         ];
 
-        $rootScope.listaLabelsTipos = [
-            { name: 'Rede Mapfre' },
-            { name: 'Rede BB' },
-            { name: 'Presidencia SH1' },
-            { name: 'Presidencia SH2' },
-            { name: 'MSF' },
-            { name: 'BB Seguridade' },
-            { name: 'Agência' },
-            { name: 'Reserva Técnica' },
-            { name: 'Grupo(RH)' }
+        $rootScope.listaCalcTipos = [
+            { name: 'Rede Mapfre', values: [] },
+            { name: 'Rede BB', values: [] },
+            { name: 'Presidencia SH1', values: [] },
+            { name: 'Presidencia SH2', values: [] },
+            { name: 'MSF', values: [] },
+            { name: 'BB Seguridade', values: [] },
+            { name: 'Agência', values: [] },
+            { name: 'Reserva Técnica', values: [] },
+            { name: 'Grupo(RH)', values: [] }
         ];
 
-        $rootScope.listaTipos = [
-            { name: 'Concertos', percs: [30, 30, 5, 5, 10, 10, 2, 2, 6] },
-            { name: 'Peças de Teatro', percs: [40, 20, 10, 11, 5, 5, 5, 2, 2] },
-            { name: 'Jogos de Tenis', percs: [15, 15, 15, 15, 15, 15, 5, 3, 2] },
-            { name: 'Jogos de Futebol', percs: [10, 10, 10, 30, 10, 10, 5, 5, 10] }
+        $rootScope.listaTipos = [{
+                name: 'CINEMA',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'ESTRÉIAS' },
+                    { name: 'INGRESSOS' }
+                ]
+            }, {
+                name: 'TEATRO',
+                percs: [40, 20, 10, 11, 5, 5, 5, 2, 2],
+                subs: [
+
+                    { name: 'PEÇAS' },
+                    { name: 'STAND UP' },
+                    { name: 'MÁGICA' },
+                    { name: 'MUSICAL' }
+                ]
+            }, {
+                name: 'DANÇA',
+                percs: [15, 15, 15, 15, 15, 15, 5, 3, 2],
+                subs: [
+                    { name: 'BALLET' },
+                    { name: 'CONTEMPORÂNEA' }
+
+                ]
+            }, {
+                name: 'MUSICA',
+                percs: [10, 10, 10, 30, 10, 10, 5, 5, 10],
+                subs: [
+                    { name: 'SHOWS' },
+                    { name: 'CONCERTOS' },
+                    { name: 'ÓPERAS' },
+                    { name: 'FESTIVAIS' }
+
+                ]
+            }, {
+                name: 'EXPOSIÇÕES',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'ARTES VISUAIS' },
+                    { name: 'LITERATURA' }
+
+                ]
+            }, {
+                name: 'ESPECIAIS',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'CARNAVAL' },
+                    { name: 'CIRCO' },
+                    { name: 'PALESTRAS' }
+
+                ]
+            }, {
+                name: 'GASTRONOMIA',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'RESTAURANTE' },
+                    { name: 'FESTIVAIS' }
+
+                ]
+            }, {
+                name: 'EDUCATIVOS',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'PROGRAMAS' }
+
+                ]
+            }, {
+                name: 'MODA',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'FASHION WEEK' }
+
+                ]
+            }, {
+                name: 'ESPORTE',
+                percs: [30, 30, 5, 5, 10, 10, 2, 2, 6],
+                subs: [
+                    { name: 'FUTEBOL' },
+                    { name: 'TENIS' },
+                    { name: 'BASQUETE' },
+                    { name: 'OLIMPIADAS' }
+
+                ]
+            }
 
         ];
         $rootScope.listaProgramas = [
@@ -205,123 +317,123 @@ angular.module("App.controllers", [])
             title: "Contatos e Perfis",
             list: [{
                 title: "Dashboard de Contatos",
-                icon:"fa-th-large",
+                icon: "fa-th-large",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#CONTACTENGAGEMENT"
             }, {
                 title: "Contatos",
-                icon:"fa-users",
+                icon: "fa-users",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#CONOWL"
             }, {
                 title: "Análise de Sentimento",
-                icon:"fa-line-chart",
+                icon: "fa-line-chart",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#SENTIMENTANALYTICS"
             }, {
                 title: "Criação de Scores",
-                icon:"fa-star",
+                icon: "fa-star",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#SimpleScores-create"
             }]
         }, {
             title: "Modelos Preditivos",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Estudio Preditivo",
-                icon:"fa-graduation-cap",
+                icon: "fa-graduation-cap",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRED_MODELS"
             }]
         }, {
             title: "Segmentações",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Modelo de Segmentação",
-                icon:"fa-code-fork",
+                icon: "fa-code-fork",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#SEGMENTATION"
             }, {
                 title: "Target Groups",
-                icon:"fa-bullseye",
+                icon: "fa-bullseye",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS"
             }]
         }, {
             title: "Gerenciamento de Campanhas",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Campanhas",
-                icon:"fa-compass",
+                icon: "fa-compass",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#INITIATIVES"
             }, {
                 title: "Calendário de Marketing",
-                icon:"fa-calendar",
+                icon: "fa-calendar",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Shell-home&/sap-iapp-state=ASC3ICCE5OCONHTV8TXT4BGP3MMJA8KSQV7TQF8T"
             }, {
                 title: "Estúdio de Templates",
-                icon:"fa-file-text",
+                icon: "fa-file-text",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX"
             }, {
                 title: "Ofertas",
-                icon:"fa-gift",
+                icon: "fa-gift",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-startManageOffer"
             }]
         }, {
             title: "Gerenciamento de Gastos",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Programas",
-                icon:"fa-tasks",
+                icon: "fa-tasks",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')"
             }, {
                 title: "Adicionar Gastos de Marketing",
-                icon:"fa-money",
+                icon: "fa-money",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Initiative-spendQuickentry&/sap-iapp-state=ASQ611NVOC0M1F55Q5P00J7TPGNQ0RKB7OFDBBW5"
             }, {
                 title: "Detalhes de Gastos de Marketing",
-                icon:"fa-info-circle",
+                icon: "fa-info-circle",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Initiative-spendMaintenance&/detail/Initiatives('0000010194')/sap-iapp-state=ASQ612MWJHUMDWK50SNH67ZNR6FP06MVVYBK1Z9U"
             }]
         }, {
             title: "Recomendações",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Modelos de Recomendação",
-                icon:"fa-file-o",
+                icon: "fa-file-o",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRODRECO"
             }, {
                 title: "Algorítimos de Recommendação",
-                icon:"fa-code",
+                icon: "fa-code",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-algorithmDefaults&/Algorithms/ERP_SDITEM_CYCLIC_ITEMS"
             }, {
                 title: "Modelos de Recommendação",
-                icon:"fa-file-o",
+                icon: "fa-file-o",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#PRODRECOTYPE"
             }, {
                 title: "Cenários de Recommendação",
-                icon:"fa-codepen",
+                icon: "fa-codepen",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#Recommendation-maintainScenario&/Scenarios/ACCESSORIES"
             }, {
                 title: "Estratificação",
-                icon:"fa-codiepie",
+                icon: "fa-codiepie",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#STR"
             }]
         }, {
             title: "Importação de Dados",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Importação de Dados",
-                icon:"fa-upload",
+                icon: "fa-upload",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#IMPORT_CSV"
             }]
         }, {
             title: "Configuração de Campanhas",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Canais de Comunicação",
-                icon:"fa-comments",
+                icon: "fa-comments",
                 link: "https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#SenderProfiles-maintain&/detail/CampaignSenderProfiles('MAIL')"
             }]
         }, {
             title: "Dashboards de  Marketing",
-            icon:"",
+            icon: "",
             list: [{
                 title: "Dashboard Executivo",
-                icon:"fa-th-large",
+                icon: "fa-th-large",
                 link: "https://coeportal218.saphosting.de/sap/ead/fnd/ui/index.html?sap-language=EN&sap-sbee-config=headerless&sap-sbee-nav=%2fdashboard%2f1&ICON=sap-icon%3a%2f%2fbbyd-dashboard"
             }]
         }]

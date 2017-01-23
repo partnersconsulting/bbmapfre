@@ -8,8 +8,9 @@
         <uib-tabset active="tabactive">
             <uib-tab index="0" heading="Evento">
                 <div class="row flex-row">
-                    <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="5" model="evento.tipoEvento" list="listaTipos"></entry>
-                    <entry title="Programa" onlyview="viewEvento" type="select" size="5" model="evento.programa" list="listaProgramas"></entry>
+                    <entry title="Tipo Evento" onlyview="viewEvento" type="select" size="4" model="evento.tipoEvento" list="listaTipos"></entry>
+                    <entry title="Sub" onlyview="viewEvento" type="select" size="3" model="evento.subTipoEvento" list="evento.tipoEvento.subs"></entry>
+                    <entry title="Programa" onlyview="viewEvento" type="select" size="3" model="evento.programa" list="listaProgramas"></entry>
                     <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingPlanner-managePrograms&/detail/Programs(guid'02000a1b-aa8f-1ed5-b78b-7aad19f42c6d')" class="btn btn-primary pull-right btn-space-top" target="_blank">Programas</a>
                 </div>
                 <div class="row flex-row">
@@ -39,7 +40,7 @@
                             <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoGrupoAlvo.clienteInterno"></entry>
                         </div>
                         <button type="button" class="btn btn-success" ng-click="addConvidadoGrupoAlvo()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
-                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS" class="btn btn-primary" target="_blank" >Grupos Alvos</a>
+                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/percsui5_ui5/sap/cuan_shell/index.html?sap-hpa-fiori=true#TARGETGROUPS" class="btn btn-primary" target="_blank">Grupos Alvos</a>
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -81,7 +82,6 @@
                             <entry title="Cliente Interno" onlyview="viewEvento" type="text" size="6" model="convidadoAvulso.clienteInterno"></entry>
                         </div>
                         <button type="button" class="btn btn-success" ng-click="addConvidadoAvulso()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
-
                         <div class="row flex-row">
                             <div class="table-responsive">
                                 <table class="table table-hover table-font-sm">
@@ -144,20 +144,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-           
-                                <tr ng-repeat="(key, label) in listaLabelsTipos">
+                                <!-- <tr ng-repeat="(key, calcItem) in listaCalcTipos">
+                                    <td>{{calcItem.name}}</td>
+                                    <td ng-hide="tipoCota=='q'">{{calcItem.values[0]}}</td>
+                                    <td ng-show="tipoCota=='q'">
+                                        <input type="text" ng-model="calcItem.values[0]" ng-change="teste1()">
+                                    </td>
+                                    <td ng-hide="tipoCota=='p'">{{calcItem.values[1]}}%</td>
+                                    <td ng-show="tipoCota=='p'">
+                                        <input type="text" ng-model="calcItem.values[1]" ng-change="teste1()">%</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr> -->
+                                
+                                <tr ng-repeat="(key, label) in listaCalcTipos">
                                     <td>{{label.name}}</td>
-
                                     <td ng-hide="tipoCota=='q'">{{getCotas(key)}}</td>
-                                    <td ng-show="tipoCota=='q'"><input type="number" id="q{{key}}"  value="{{getCotas(key)}}"></td>
+                                    <td ng-show="tipoCota=='q'">
+                                        <input type="text"  value="{{getCotas(key)}}">
+                                    </td>
                                     <td ng-hide="tipoCota=='p'">{{getPercCota(key)}}%</td>
-                                    <td ng-show="tipoCota=='p'"><input type="number" id="p{{key}}"  max="100" value="{{getPercCota(key)}}">%</td>
-
+                                    <td ng-show="tipoCota=='p'">
+                                        <input type="text" value="{{getPercCota(key)}}">%</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
-
                             </tbody>
+                            <!-- <tfoot>
+                                <td></td>
+                                <td><span >{{totalQ}}</span></td>
+                                <td><span >{{totalP}}</span></td>
+                                <td></td>
+                                <td></td>
+                            </tfoot> -->
                         </table>
                     </div>
                 </div>
@@ -170,65 +189,63 @@
             <uib-tab index="3" heading="Convite">
                 <div class="row flex-row">
                     <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="3" model="evento.numeroRSVP"></entry>
-
                     <entry title="Template yMkt" onlyview="viewEvento" type="select" size="3" model="evento.templateYMkt" list="listaTemplates"></entry>
+                    <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX" target="_blank" class="btn btn-primary pull-right btn-space-top" ">Templates</a>
 
-                        <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX" target="_blank" class="btn btn-primary pull-right btn-space-top" ">Templates</a>
-
-                    <entry title="Gerar Pass Wallet" onlyview="viewEvento" type="checkbox" size="3" model="evento.passWallet"></entry>
+                    <entry title="Gerar Pass Wallet " onlyview="viewEvento " type="checkbox " size="3 " model="evento.passWallet "></entry>
                 </div>
-                <div class="row flex-row">
-                    <entry title="Banner Convite" onlyview="viewEvento" type="text" size="4" model="evento.arquivoBanner"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                    <entry title="Página web" onlyview="viewEvento" type="text" size="4" model="evento.arquivoPagina"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                <div class="row flex-row ">
+                    <entry title="Banner Convite " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoBanner "></entry>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
+                    <entry title="Página web " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoPagina "></entry>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
                 </div>
-                <div class="row flex-row">
+                <div class="row flex-row ">
                 </div>
-                <div class="row flex-row">
-                    <entry title="Teaser" onlyview="viewEvento" type="text" size="4" model="evento.arquivoTeaser"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                    <entry title="Logomarca" onlyview="viewEvento" type="text" size="4" model="evento.arquivoLogomarca"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                <div class="row flex-row ">
+                    <entry title="Teaser " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoTeaser "></entry>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
+                    <entry title="Logomarca " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoLogomarca "></entry>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
                 </div>
-                <div class="row flex-row">
+                <div class="row flex-row ">
                 </div>
-                <div class="row flex-row">
-                    <entry title="Rodapé" onlyview="viewEvento" type="text" size="4" model="evento.arquivoRodape"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
-                    <entry title="Classificação Etária" onlyview="viewEvento" type="text" size="4" model="evento.arquivoClassificacao"></entry>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button type="submit" class="btn btn-primary pull-right btn-space-top" ng-click="upload()">Anexar</button>
+                <div class="row flex-row ">
+                    <entry title="Rodapé " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoRodape "></entry>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
+                    <entry title="Classificação Etária " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoClassificacao "></entry>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
+                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
                 </div>
-                <div class="row flex-row">
+                <div class="row flex-row ">
                 </div>
-                <div class="row flex-row">
-                    <entry title="Canal de Envio" onlyview="viewEvento" type="select" size="6" model="evento.canalEnvio" list="listaCanaisEnvio"></entry>
-                    <entry title="Canal de RSVP" onlyview="viewEvento" type="select" size="6" model="evento.canalRSVP" list="listaCanaisRSVP"></entry>
+                <div class="row flex-row ">
+                    <entry title="Canal de Envio " onlyview="viewEvento " type="select " size="6 " model="evento.canalEnvio " list="listaCanaisEnvio "></entry>
+                    <entry title="Canal de RSVP " onlyview="viewEvento " type="select " size="6 " model="evento.canalRSVP " list="listaCanaisRSVP "></entry>
                 </div>
-                <!--  <div class="row">
-                    <entry title="Data Validade" onlyview="true" type="text" size="4" model="dataValidade(voluntario.data_cadastro)"></entry>
-                    <entry title="Status Atual" onlyview="true" type="text" size="4" model="voluntario.status.nome.code"></entry>
-                    <entry ng-show="voluntario.status.motivo.code" title="Motivo Status" onlyview="true" type="text" size="4" model="voluntario.status.motivo.code"></entry>
+                <!--  <div class="row ">
+                    <entry title="Data Validade " onlyview="true " type="text " size="4 " model="dataValidade(voluntario.data_cadastro) "></entry>
+                    <entry title="Status Atual " onlyview="true " type="text " size="4 " model="voluntario.status.nome.code "></entry>
+                    <entry ng-show="voluntario.status.motivo.code " title="Motivo Status " onlyview="true " type="text " size="4 " model="voluntario.status.motivo.code "></entry>
                 </div>
-                <div class="row">
-                    <entry title="Alterar Status" type="select" size="4" model="voluntario.status.nome" list="listaVoluntarioStatus"></entry>
-                    <entry title="Alterar Motivo" type="select" size="4" model="voluntario.status.motivo" list="listaVoluntarioMotivo"></entry>
+                <div class="row ">
+                    <entry title="Alterar Status " type="select " size="4 " model="voluntario.status.nome " list="listaVoluntarioStatus "></entry>
+                    <entry title="Alterar Motivo " type="select " size="4 " model="voluntario.status.motivo " list="listaVoluntarioMotivo "></entry>
                 </div> -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-success pull-right btn-space-top" ng-click="salvarEvento()">Salvar Convite</button>
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        <button type="submit " class="btn btn-success pull-right btn-space-top " ng-click="salvarEvento() ">Salvar Convite</button>
                     </div>
                 </div>
             </uib-tab>
         </uib-tabset>
     </div>
-    <table class="table table-hover">
+    <table class="table table-hover ">
         <thead>
             <tr>
                 <th>Id</th>
@@ -244,7 +261,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="itemEvento in listaEventos | filter:filtro" ng-class="{'tr-selected': itemEvento.id == evento.id}">
+            <tr ng-repeat="itemEvento in listaEventos | filter:filtro " ng-class="{ 'tr-selected': itemEvento.id==e vento.id} ">
                 <!-- 'tr-disabled':!itemEvento.ativo,  -->
                 <td>{{itemEvento.id + 1}}</td>
                 <td>{{itemEvento.nome}}</td>
@@ -255,9 +272,9 @@
                 <td>{{itemEvento.cotas}}</td>
                 <td>{{itemEvento.grupos.length}}</td>
                 <td>{{itemEvento.convidados.length}}</td>
-                <!-- <td> <span class="btn btn-info btn-xs" ng-click="visualizarEvento(itemVoluntario)"><i class="fa fa-search" aria-hidden="true"></i></span></td> -->
+                <!-- <td> <span class="btn btn-info btn-xs " ng-click="visualizarEvento(itemVoluntario) "><i class="fa fa-search " aria-hidden="true "></i></span></td> -->
             </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-success pull-right" ng-show="collapseFormEvento" ng-click="novoEvento()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
+    <button type="button " class="btn btn-success pull-right " ng-show="collapseFormEvento " ng-click="novoEvento() "><i class="fa fa-plus " aria-hidden="true "></i> Adicionar Novo</button>
 </panel>
