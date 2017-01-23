@@ -620,3 +620,7 @@ tfoot {
     font-weight: 600;
     margin-bottom: 20px;
 }
+
+.row .btn-space-left {
+    margin-left: 10px;
+}
