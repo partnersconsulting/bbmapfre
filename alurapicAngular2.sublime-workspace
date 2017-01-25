@@ -1,0 +1,715 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"console\tvar"
+			],
+			[
+				"$sc",
+				"$scope\tAngularJS"
+			],
+			[
+				"ng-c",
+				"ng-change\tAngularJS"
+			],
+			[
+				"ch",
+				"ng-change\tAngularJS"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"ng-cl",
+				"ng-click\tAngularJS"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"add",
+				"add\t.add()"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"pre",
+				"prepend\t.prepend()"
+			],
+			[
+				"fre",
+				"fretes"
+			],
+			[
+				"meio",
+				"meioId"
+			],
+			[
+				"meios",
+				"meioPagamentos"
+			],
+			[
+				"ca",
+				"carrinho"
+			],
+			[
+				"e",
+				"each\t$.each()"
+			],
+			[
+				"mou",
+				"mountCartoes"
+			],
+			[
+				"end",
+				"endereco"
+			],
+			[
+				"cart",
+				"cartaoDiponivel"
+			],
+			[
+				"lis",
+				"listaCartoes"
+			],
+			[
+				"sel",
+				"select\t.select()"
+			],
+			[
+				"en",
+				"endereco"
+			],
+			[
+				"tex",
+				"textoEndereco"
+			],
+			[
+				"mount",
+				"mountItems"
+			],
+			[
+				"se",
+				"select\t.select()"
+			],
+			[
+				"pa",
+				"parent\t.parent()"
+			],
+			[
+				"re",
+				"remove\t.remove()"
+			],
+			[
+				"li",
+				"linkAlterar"
+			],
+			[
+				"produ",
+				"product"
+			],
+			[
+				"c",
+				"closest\t.closest()"
+			],
+			[
+				"ene",
+				"enderecos"
+			],
+			[
+				"pro",
+				"productToAdd"
+			],
+			[
+				"selec",
+				"selecionado"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"s",
+				"show\t.show()"
+			],
+			[
+				"listC",
+				"listCarrinhoAssinatura"
+			],
+			[
+				"pars",
+				"parseInt"
+			],
+			[
+				"prod",
+				"produto"
+			],
+			[
+				"n",
+				"Number"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"a",
+				"attributes"
+			],
+			[
+				"i",
+				"inline-block"
+			],
+			[
+				"gene",
+				"generateCategories"
+			],
+			[
+				"genera",
+				"generate"
+			],
+			[
+				"pr",
+				"prods"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"b",
+				"br\tTag"
+			],
+			[
+				"tog",
+				"toggle\t.toggle()"
+			],
+			[
+				"to",
+				"toggle\t.toggle()"
+			],
+			[
+				"col",
+				"col-md-4"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"bs3-c",
+				"bs3-col:3\tbs3-col-3"
+			],
+			[
+				"bs",
+				"bs3-col\tbs3-col"
+			],
+			[
+				"bs-",
+				"bs3-row\tbs3-row"
+			],
+			[
+				"bC",
+				"bs3-col:6\tbs3-col-6"
+			],
+			[
+				"bs3-mo",
+				"bs3-input:month\tbs3-input-month"
+			],
+			[
+				"u",
+				"url()"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: log",
+				"Snippet: bs3-link-button-group"
+			],
+			[
+				"packages",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 637.0
+	},
+	"console":
+	{
+		"height": 320.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app/foto",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app/listagem"
+	],
+	"file_history":
+	[
+		"/home/sheldon/4-projects/study-angular/angular/server.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app/foto/foto.service.ts",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/server/data.db",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app/listagem/listagem.component.ts",
+		"/home/sheldon/4-projects/study-angular/watch json/alurapic.json",
+		"/home/sheldon/4-projects/study-angular/watch json/db.json",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/server/config/database.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/server/app/api/index.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/server/app/routes/index.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app/app.module.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/app/main.js",
+		"/home/sheldon/4-projects/partners/bbmafre/project/controller/controllers.js",
+		"/home/sheldon/4-projects/partners/bbmafre/project/view/home.html",
+		"/home/sheldon/4-projects/partners/bbmafre/project/index.html",
+		"/home/sheldon/4-projects/partners/bbmafre/project/view/css/geral.css",
+		"/home/sheldon/4-projects/partners/bbmafre/project/view/eventos.html",
+		"/home/sheldon/4-projects/study-angular/angular2/angular2-typescript-gulp/build/systemjs.config.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/package.json",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/systemjs.config.js",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/tsconfig.json",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/client/typings.json",
+		"/home/sheldon/4-projects/study-angular/angular2/alurapic/server/server.js",
+		"/home/sheldon/7-app/macros_firefox/datas.csv",
+		"/home/sheldon/4-projects/iksa/site2/css/iksa.css",
+		"/home/sheldon/4-projects/iksa/site2/img/site2.svg",
+		"/home/sheldon/4-projects/partners/bbmafre/project/view/cadastros.html",
+		"/home/sheldon/4-projects/partners/bbmafre/project/view/cadastro_voluntario.html",
+		"/home/sheldon/4-projects/partners/bbmafre/project/view/relatorios.html",
+		"/home/sheldon/8-bin/updateAllCmd",
+		"/home/sheldon/7-app/background/commands.html",
+		"/home/sheldon/7-app/background/generate.sh",
+		"/home/sheldon/7-app/background/rasterize.js",
+		"/home/sheldon/workspace/edimpex/cms-content.impex",
+		"/home/sheldon/Desktop/teste1.xml",
+		"/home/sheldon/Desktop/SublimePackagesBackup/Package Control.sublime-settings",
+		"/home/sheldon/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/sheldon/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/sheldon/7-app/sublime/snippets/readme.md",
+		"/home/sheldon/7-app/sublime/snippets/xxx.sublime-snippet",
+		"/home/sheldon/7-app/sublime/snippets/sheldon.sublime-snippet",
+		"/home/sheldon/4-projects/partners/abril/telas/checkout/css/style.css",
+		"/home/sheldon/7-app/sublime/snippets/dasdas.sublime-snippet",
+		"/home/sheldon/.config/sublime-text-3/Packages/User/sheldon.sublime-snippet",
+		"/media/sheldon/UUI/uui/ldlinux.sys",
+		"/etc/hosts",
+		"/home/sheldon/1-hybris/create_sym_link_hybris_abril.sh",
+		"/home/sheldon/7-app/sublime/snippets/update.sh",
+		"/home/sheldon/7-app/sublime/snippets/log.sublime-snippet",
+		"/home/sheldon/7-app/sublime/snippets/tt.xml",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/config/localextensions.xml",
+		"/home/sheldon/1-hybris/sheldon/produtos/products.csv",
+		"/home/sheldon/workspace/edimpex/src/main/resources/js/controller-angular.js",
+		"/home/sheldon/workspace/edimpex/src/main/resources/js/synchronous-service.js",
+		"/home/sheldon/workspace/edimpex/src/main/resources/controller/controllers.js",
+		"/home/sheldon/workspace/edimpex/src/main/resources/controller/directives.js",
+		"/home/sheldon/workspace/edimpex/src/main/resources/view/directives/entry.html",
+		"/home/sheldon/workspace/edimpex/src/main/resources/view/home.html",
+		"/home/sheldon/workspace/edimpex/src/main/resources/view/css/geral.css",
+		"/home/sheldon/workspace/edimpex/src/main/resources/index2.html",
+		"/home/sheldon/workspace/edimpex/src/main/resources/App.js",
+		"/home/sheldon/workspace/edimpex/src/main/resources/view/css/reset.css",
+		"/home/sheldon/1-hybris/sheldon/produtos/create.sh",
+		"/home/sheldon/workspace/edimpex/src/main/resources/css/reset.css",
+		"/home/sheldon/Downloads/javafx-samples-9-ea/src/3DViewer/build.xml",
+		"/home/sheldon/Downloads/javafx-samples-9-ea/samples_readme.txt",
+		"/home/sheldon/workspace/edimpex/src/main/resources/view/css/javafx.css",
+		"/home/sheldon/workspace/edimpex/src/main/resources/css/style.css",
+		"/home/sheldon/workspace/edimpex/src/main/resources/js/asynchronous-service.js",
+		"/home/sheldon/4-projects/study-angular/angular/public/js/services/meus-servicos.js",
+		"/home/sheldon/4-projects/study-angular/alurapic/client/app/listagem/listagem.component.html",
+		"/home/sheldon/workspace/edimpex/src/main/resources/index.html",
+		"/home/sheldon/workspace/edimpex/customizing.impex.temp",
+		"/home/sheldon/workspace/edimpex/customizing.impex",
+		"/home/sheldon/1-hybris/sheldon/produtos/example.csv",
+		"/home/sheldon/workspace/edimpex/cms-content.jimpex",
+		"/home/sheldon/4-projects/partners/abril/abril-commerce/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/customizing.impex",
+		"/home/sheldon/4-projects/partners/abril/abril-commerce/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/sampledata/contentCatalogs/assineContentCatalog/cms-content.jimpex",
+		"/home/sheldon/4-projects/partners/abril/abril-commerce/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/customizing.jimpex",
+		"/home/sheldon/4-projects/study-angular/angular/public/js/main.js",
+		"/home/sheldon/workspace/edimpex/teste.impex",
+		"/home/sheldon/workspace/edimpex/teste.jimpex",
+		"/home/sheldon/7-app/macros_firefox/insertFromDatasCSV.js",
+		"/home/sheldon/workspace/edimpex/src/main/resources/jslib/bootstrap.min.js",
+		"/home/sheldon/4-projects/study-angular/angular/public/partials/principal.html",
+		"/home/sheldon/4-projects/study-angular/angular/public/index.html",
+		"/home/sheldon/4-projects/study-angular/alurapic/client/index.html",
+		"/home/sheldon/4-projects/study-angular/regent/public/js/controllers/wizard-controller.js",
+		"/home/sheldon/4-projects/study-angular/regent/public/js/controllers/admin-controller.js",
+		"/home/sheldon/4-projects/study-angular/regent/public/js/main.js",
+		"/home/sheldon/4-projects/study-frontend/wizard/index.html",
+		"/home/sheldon/4-projects/study-frontend/wizard/js/objs.js",
+		"/home/sheldon/4-projects/study-frontend/wizard/js/wizard.js",
+		"/home/sheldon/4-projects/partners/Alpargatas/project/controller/controllers.js",
+		"/home/sheldon/4-projects/partners/Alpargatas/project/App.js",
+		"/home/sheldon/workspace/edimpex/teste.impex.jimpex",
+		"/home/sheldon/workspace/edimpex/fileName.jimpex",
+		"/home/sheldon/workspace/edimpex/c:\\file.json",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/stores/electronics/site.impex",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/stores/electronics/store.impex",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/stores/electronics/solrtrigger.impex",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/contentCatalogs/electronicsContentCatalog/catalog.impex",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/common/essential-data.impex",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/common/countries.impex",
+		"/home/sheldon/1-hybris/hybris-teste-6.2.0.0/hybris/bin/ext-data/electronicsstore/resources/electronicsstore/import/coredata/stores/electronics/solr.impex",
+		"/home/sheldon/4-projects/partners/abril/abril-commerce/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/coredata/common/essential-data.impex",
+		"/home/sheldon/1-hybris/sheldon/produtos/project.json",
+		"/home/sheldon/1-hybris/help sheldon/index/merge.sh",
+		"/home/sheldon/1-hybris/help sheldon/produtos/create.sh",
+		"/home/sheldon/1-hybris/help sheldon/produtos/source/products-media.impex",
+		"/home/sheldon/1-hybris/hybris-abril-6.2.0.0/hybris/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/coredata/productCatalogs/assineProductCatalog/catalog.impex",
+		"/home/sheldon/1-hybris/hybris-abril-6.2.0.0/hybris/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/sampledata/contentCatalogs/assineContentCatalog/cms-content.impex",
+		"/home/sheldon/1-hybris/hybris-abril-6.2.0.0/hybris/bin/custom/abril/abrilinitialdata/resources/abrilinitialdata/import/sampledata/contentCatalogs/assineContentCatalog/cms-content_pt.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/source/categories.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/teste1.sh",
+		"/home/sheldon/1-hybris/help sheldon/produtos/project.json",
+		"/home/sheldon/1-hybris/help sheldon/produtos/jsonv.sh",
+		"/home/sheldon/1-hybris/help sheldon/produtos/generated/products.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/nyt.json",
+		"/home/sheldon/1-hybris/help sheldon/produtos/products.temp",
+		"/home/sheldon/1-hybris/help sheldon/produtos/products-media.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/products_pt.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/products.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/generated/products_pt.impex",
+		"/home/sheldon/1-hybris/help sheldon/produtos/products.csv",
+		"/home/sheldon/1-hybris/help sheldon/produtos/prods.csv",
+		"/home/sheldon/Downloads/capas/convertImages.sh",
+		"/home/sheldon/1-hybris/hybris-abril-6.2.0.0/hybris/config/localextensions.xml",
+		"/home/sheldon/1-hybris/help sheldon/cms-content.impex"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"vento",
+			"] }",
+			"},\n",
+			"2] },",
+			"] }",
+			"getCotas",
+			"for",
+			"' }",
+			"ng-change\nng-change\nng-change",
+			"ng-change\nng-change",
+			"ng-change",
+			"$scope",
+			"title:",
+			"https: //",
+			"size=\"5\"",
+			"repeat",
+			"disabled",
+			"fini",
+			"height",
+			"showMenu",
+			"rawPhone1",
+			"viewEvento",
+			">Upload<",
+			"upload",
+			"Upload",
+			"upload",
+			"Upload",
+			"size=\"4\"",
+			"size=\"8\"",
+			"convidadoAvulso",
+			"root",
+			".flex",
+			"' }",
+			"nome",
+			"novo",
+			"itemVoluntario",
+			"Voluntario",
+			"<div class=\"form-group\">",
+			"mountPagamentoDiv",
+			"mountCartoes",
+			"mountPagamentoDiv",
+			"mountEnderecoDiv",
+			"mountAddDiv",
+			"alterar-endereco",
+			"listEnderecoPop",
+			"totalFreteAvulso",
+			"hide",
+			"adicionarProduto",
+			"add",
+			"init",
+			"show",
+			"cart-footer",
+			"avisoEndereco",
+			"#listaEnderecos",
+			"alterar-endereco",
+			"alterar-pagamento",
+			"listaEnderecos",
+			"painelEnderecos",
+			"Frete",
+			"listaCartoes",
+			"roduto.tipo",
+			"/100",
+			"frete",
+			"class",
+			"tree2",
+			", class:",
+			"\"\n",
+			"\",\n",
+			"port",
+			"background",
+			"fon",
+			"befo",
+			"afte",
+			"sele",
+			"INSERT_UPDATE BreadcrumbComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef ",
+			"BRL",
+			"scope",
+			"'",
+			"\"",
+			";",
+			"Heading",
+			"attributes-values-container",
+			"\t",
+			">\n",
+			"group",
+			">\n",
+			"ÄHHHHHHHHHHHHhhh",
+			"}, {",
+			"\\/",
+			"\\\"",
+			"\":\"",
+			"\"{\"",
+			" / ",
+			"\\/",
+			"\\\"",
+			"sum",
+			"  ",
+			" ",
+			"  ",
+			"; ",
+			" ;",
+			"  ",
+			"\t",
+			"nodeRef",
+			"cronJob",
+			"full",
+			"full-electronicsIndex-cronJob",
+			"full",
+			"full-electronicsInde",
+			"full-electronicsIndex-cronJob",
+			"                 ",
+			"                ",
+			"NavigationBarSlot",
+			"AcceleratorNavNode",
+			"ViewOrderAction",
+			"ActionRestriction",
+			"AddToCart",
+			"pick",
+			"contentCV",
+			"ListPickUpInStoreAction,",
+			"ListPickUpInStoreAction,ListAddToCartAction",
+			"ListPickUpInStoreAction,",
+			"pick",
+			"\t",
+			"12",
+			"55\t12",
+			"\t",
+			" $"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			", opened: true, class:",
+			"'",
+			",",
+			";",
+			"/",
+			"\"",
+			":",
+			"{",
+			"/",
+			"\"",
+			" ",
+			";",
+			" ",
+			"",
+			",",
+			"",
+			"\t",
+			"abril",
+			"#060",
+			"#393",
+			"\t",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "alurapicAngular2.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 72.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 280.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

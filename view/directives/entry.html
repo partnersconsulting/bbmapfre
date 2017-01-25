@@ -4,6 +4,8 @@
     <input ng-show="type == 'text' || type == 'number' || type == 'email'" ng-model="model" class="form-control" type="{{type}}">
     <input ng-show="type == 'phone'" ng-model="model" class="form-control" type="text" >
 
+    <input ng-show="type == 'file'" ng-model="model" class="form-control" type="file" >
+
 
     <select ng-show="type == 'select'" class="form-control" ng-model="model" ng-options="item.name for item in list">
         <option value=""></option>

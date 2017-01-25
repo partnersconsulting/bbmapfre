@@ -1,8 +1,4 @@
 <panel title="Cadastro de Eventos" linkback="eventos">
-    <div class="input-group input-group-lg grupo-busca">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-        <input type="text" class="form-control" placeholder="busca" aria-describedby="sizing-addon1" ng-model="filtro">
-    </div>
     <div uib-collapse="collapseFormEvento" class="well">
         <button type="button" ng-click="closeTabs()" class="btn btn-danger  pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
         <uib-tabset active="tabactive">
@@ -107,7 +103,7 @@
                                             <td>{{convidado.email}}</td>
                                             <td>{{convidado.telefone}}</td>
                                             <td>{{convidado.clienteInterno.name}}</td>
-                                             <td>
+                                            <td>
                                                 <button type="button" ng-click="removerItemLista()" class="btn btn-xs btn-danger  pull-right"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
                                             </td>
                                         </tr>
@@ -205,32 +201,33 @@
                     <entry title="Gerar Pass Wallet " onlyview="viewEvento " type="checkbox " size="3 " model="evento.passWallet "></entry>
                 </div>
                 <div class="row flex-row ">
-                    <entry title="Banner Convite " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoBanner "></entry>
+                    <entry title="Banner Convite " onlyview="viewEvento " type="file" size="5" model="evento.arquivoBanner "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
-                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
-                    <entry title="Página web " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoPagina "></entry>
+                    <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
+
+                    <entry title="Página web " onlyview="viewEvento " type="file " size="5" model="evento.arquivoPagina "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
-                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
+                    <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
                 </div>
                 <div class="row flex-row ">
                 </div>
                 <div class="row flex-row ">
-                    <entry title="Teaser " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoTeaser "></entry>
+                    <entry title="Teaser " onlyview="viewEvento " type="file " size="5" model="evento.arquivoTeaser "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
-                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
-                    <entry title="Logomarca " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoLogomarca "></entry>
+                    <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
+                    <entry title="Logomarca " onlyview="viewEvento " type="file " size="5" model="evento.arquivoLogomarca "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
-                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
+                    <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
                 </div>
                 <div class="row flex-row ">
                 </div>
                 <div class="row flex-row ">
-                    <entry title="Rodapé " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoRodape "></entry>
+                    <entry title="Rodapé " onlyview="viewEvento " type="file " size="5" model="evento.arquivoRodape "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
-                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
-                    <entry title="Classificação Etária " onlyview="viewEvento " type="text " size="4 " model="evento.arquivoClassificacao "></entry>
+                    <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
+                    <entry title="Classificação Etária " onlyview="viewEvento " type="file " size="5" model="evento.arquivoClassificacao "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
-                    <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button>
+                    <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
                 </div>
                 <div class="row flex-row ">
                 </div>
@@ -254,6 +251,10 @@
                 </div>
             </uib-tab>
         </uib-tabset>
+    </div>
+     <div class="input-group input-group-lg grupo-busca ">
+        <span class="input-group-addon " id="sizing-addon1 "><i class="fa fa-search " aria-hidden="true "></i></span>
+        <input type="text " class="form-control " placeholder="busca " aria-describedby="sizing-addon1 " ng-model="filtro ">
     </div>
     <table class="table table-hover ">
         <thead>

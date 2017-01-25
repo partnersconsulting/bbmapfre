@@ -48,7 +48,7 @@
     height: 100%;
 }
 
-.alpargatas-content {
+.project-content {
     height: 100%;
 }
 
@@ -72,7 +72,7 @@ html {
     overflow-y: auto;
     /* background-image: url(../images/bg5.jpg);
     background-size: cover; */
-    background-color: #2aa4ae;
+    background-color: #0167a5;
 }
 
 body {
@@ -290,7 +290,7 @@ tfoot {
 
 /* ************** Animate ************** */
 
-.alpargatas-content.ng-enter {
+.project-content.ng-enter {
     animation: slideInRight 0.2s both ease-in;
 }
 
@@ -309,7 +309,7 @@ tfoot {
     }
 }
 
-.alpargatas-content.ng-leave {
+.project-content.ng-leave {
     animation: slideOutLeft 0.1s both ease-in;
 }
 
@@ -359,27 +359,35 @@ tfoot {
 .tile {
     vertical-align: top;
     width: 190px;
-    height: 230px;
+    height: 190px;
     border: 1px solid #dddddd;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 15px;
     display: inline-block;
     margin-bottom: 20px;
     margin-right: 20px;
+    text-decoration: none;
+}
+
+.tile:hover {
+    text-decoration: none;
+     background-color: #eee;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .tile i {
-    color: #666666;
-    opacity: .3;
+    color: #00669e;
+    /*opacity: .3;*/
     display: block;
+    text-align: center;
 }
 
 .tile .title {
     color: #007cc0;
-    margin-top: 40px;
-    font-size: 1.1em;
+    margin-top: 20px;
+    font-size: 1.05em;
     display: block;
     line-height: 1.3em;
 }
@@ -610,7 +618,7 @@ tfoot {
 }
 
 .link-group {
-    padding: 20px;
+    padding: 5px 20px;
     display: block;
     width: 100%;
 }
@@ -623,4 +631,8 @@ tfoot {
 
 .row .btn-space-left {
     margin-left: 10px;
+}
+
+.logos {
+    padding: 5px 15px;
 }
