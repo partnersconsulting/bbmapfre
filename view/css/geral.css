@@ -102,12 +102,25 @@ select.form-control {
 .panel-default>.panel-heading {
     background-color: #fff;
     background-image: inherit;
-    height: 50px;
+    height: 90px;
     border-bottom: 1px solid #ccc;
     border-top: 4px solid #009de0;
     color: #666666;
     text-align: center;
-    padding: 13px;
+    padding: 2px 6px;
+}
+
+.panel-head-title {
+    float: left;
+    margin: 20px 10px;
+}
+
+.panel-head-title .panel-title {
+        /* padding-top: 5px; */
+    font-size: 25px;
+    /* font-weight: 500; */
+    vertical-align: middle;
+    margin-left: 10px;
 }
 
 .panel-default>.panel-heading a {
@@ -373,8 +386,8 @@ tfoot {
 
 .tile:hover {
     text-decoration: none;
-     background-color: #eee;
-     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    background-color: #eee;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .tile i {
