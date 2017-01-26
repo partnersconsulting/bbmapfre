@@ -182,7 +182,7 @@ angular.module("App.controllers", [])
         $rootScope.listaCanaisEnvio = [
             { name: 'Email' },
             { name: 'SMS' },
-            { name: 'Mais Efetivo por Cliente' }
+            { name: 'Mais Efetivo por Cliente e no Melhor Horário' }
         ];
         $rootScope.listaCanaisRSVP = [
             { name: 'Call List' },

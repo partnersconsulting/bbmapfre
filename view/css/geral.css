@@ -656,3 +656,7 @@ tfoot {
 .logos {
     padding: 5px 15px;
 }
+
+.wallet {
+    max-height: 60px;
+}

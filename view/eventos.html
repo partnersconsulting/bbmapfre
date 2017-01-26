@@ -194,11 +194,13 @@
             </uib-tab>
             <uib-tab index="3" heading="Convite">
                 <div class="row flex-row">
-                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="3" model="evento.numeroRSVP"></entry>
-                    <entry title="Template yMkt" onlyview="viewEvento" type="select" size="4" model="evento.templateYMkt" list="listaTemplateYMkt"></entry>
+                    <entry title="Número do RSVP" onlyview="viewEvento" type="text" size="5" model="evento.numeroRSVP"></entry>
+                    <!-- <entry title="Template yMkt" onlyview="viewEvento" type="select" size="4" model="evento.templateYMkt" list="listaTemplateYMkt"></entry> -->
                     <a href="https://ec2-52-67-23-140.sa-east-1.compute.amazonaws.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html#MarketingContent-showList&/sap-iapp-state=ASQ618R4DPUQ0Q4QW0IH8V3THSVIYANTZAR7LGHX" target="_blank" class="btn btn-primary pull-right btn-space-top" ">Templates</a>
 
                     <entry title="Gerar Pass Wallet " onlyview="viewEvento " type="checkbox " size="3 " model="evento.passWallet "></entry>
+                    <img class="wallet" src="/images/apple.png">
+                    <img class="wallet" src="/images/google.png">
                 </div>
                 <div class="row flex-row ">
                     <entry title="Banner Convite " onlyview="viewEvento " type="file" size="3" model="evento.arquivoBanner "></entry>
@@ -206,7 +208,7 @@
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
                     <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
 
-                    <entry title="Página web " onlyview="viewEvento " type="file " size="5" model="evento.arquivoPagina "></entry>
+                    <entry title="Rodapé " onlyview="viewEvento " type="file " size="5" model="evento.arquivoRodape "></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
                     <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
                 </div>
@@ -224,7 +226,7 @@
                 <div class="row flex-row ">
                 </div>
                 <div class="row flex-row ">
-                    <entry title="Rodapé " onlyview="viewEvento " type="file " size="3" model="evento.arquivoRodape "></entry>
+                    <entry title="Página web " onlyview="viewEvento " type="file " size="3" model="evento.arquivoPagina "></entry>
                     <entry title="Template Rodapé" onlyview="viewEvento" type="select" size="2" model="evento.templateRodape" list="listaTemplateRodape"></entry>
                     <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() "><i class="fa fa-search " aria-hidden="true "></i></button>
                     <!-- <button type="submit " class="btn btn-primary pull-right btn-space-top " ng-click="upload() ">Anexar</button> -->
