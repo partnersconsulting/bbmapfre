@@ -102,7 +102,7 @@ select.form-control {
 .panel-default>.panel-heading {
     background-color: #fff;
     background-image: inherit;
-    height: 90px;
+    height: 70px;
     border-bottom: 1px solid #ccc;
     border-top: 4px solid #009de0;
     color: #666666;
@@ -121,6 +121,13 @@ select.form-control {
     /* font-weight: 500; */
     vertical-align: middle;
     margin-left: 10px;
+}
+
+@media (max-width: 800px) {
+    .logos img{
+        display: none;
+        /*height: 20px;*/
+    }
 }
 
 .panel-default>.panel-heading a {
